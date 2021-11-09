@@ -1,0 +1,202 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+  color: white;
+  font-weight: 400;
+}
+
+body {
+  background: #0d0d0d;
+  overflow-x: hidden;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+
+.choose-role-page {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 5%;
+}
+
+.glow {
+  position: absolute;
+  top: 20px;
+  height: 150px;
+  width: 150px;
+  background: rgba(213, 213, 213);
+  filter: blur(90px);
+  opacity: 0.6;
+}
+
+.container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.melodicity-logo {
+  height: 40px;
+  margin: 0.7em 0 1em;
+}
+
+.heading {
+  color: white;
+  font-weight: 300;
+  opacity: 0.8;
+}
+
+.card-container {
+  margin: 2.4em 0;
+  display: flex;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgba(196, 196, 196, 0.18);
+  border: 3px solid #9a9a9a;
+  box-sizing: border-box;
+  border-radius: 11px;
+  height: 300px;
+  width: 333.43px;
+  padding: 1.2em;
+  padding-top: 1.7em;
+  text-align: center;
+  cursor: pointer;
+  max-width: 800px;
+  position: relative;
+  transition: 0.3s all ease;
+  overflow: hidden;
+  transform: translateZ(0);
+  -webkit-font-smoothing: subpixel-antialiased;
+  backface-visibility: hidden;
+}
+
+.card-1::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(listener-image.png);
+  background-size: cover;
+  z-index: -1;
+  filter: blur(0) grayscale(100%);
+  transition: 0.3s all ease;
+}
+
+.card-2::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(artist-image.png);
+  background-size: cover;
+  z-index: -1;
+  filter: blur(0) grayscale(100%);
+}
+
+.listener-card-icon {
+  mask-image: url(Listener-icon.svg);
+  -webkit-mask-image: url(Listener-icon.svg);
+  mask-repeat: no-repeat;
+  -webkit-mask-repeat: no-repeat;
+  mask-position: center;
+  -webkit-mask-position: center;
+  mask-size: 90px;
+  -webkit-mask-size: 90px;
+  height: 90px;
+  width: 90px;
+  background: rgb(223, 223, 223);
+}
+
+.artist-card-icon {
+  mask-image: url(Music-wave.svg);
+  -webkit-mask-image: url(Music-wave.svg);
+  mask-repeat: no-repeat;
+  -webkit-mask-repeat: no-repeat;
+  mask-position: center;
+  -webkit-mask-position: center;
+  mask-size: 80px;
+  -webkit-mask-size: 80px;
+  height: 90px;
+  width: 90px;
+  background: rgb(223, 223, 223);
+}
+
+.card-heading {
+  font-weight: 400;
+  margin-top: 0.5em;
+  margin-bottom: 0.3em;
+  opacity: 0.8;
+}
+
+.card-description {
+  opacity: 56%;
+}
+
+.card-container-line {
+  width: 2px;
+  height: 300px;
+  background: rgba(255, 255, 255, 0.2);
+  margin: 0 3vw;
+}
+
+/* 0/
+
+/* .pad-heading {
+  font-weight: 600;
+  margin-top: 0.5em;
+  margin-bottom: 0.3em;
+  color: rgb(40, 59, 68);
+}
+
+.pad-description {
+  color: rgb(40, 59, 68);
+} */
+
+.card:hover {
+  box-shadow: 0px 7px 15px rgba(0, 0, 0, 0.25);
+  transform: translateY(-1%);
+}
+
+.card:hover:before {
+  animation: coloringImage 1s ease-in forwards;
+}
+
+.card:hover .artist-card-icon,
+.card:hover .listener-card-icon {
+  background: white;
+}
+
+.card:hover .card-heading {
+  opacity: 1;
+}
+
+@keyframes coloringImage {
+  0% {
+    filter: grayscale(100%);
+  }
+  50% {
+    filter: grayscale(50%);
+  }
+  100% {
+    filter: grayscale(0%);
+  }
+}
