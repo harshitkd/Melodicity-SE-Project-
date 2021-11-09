@@ -1,0 +1,28 @@
+.logo{
+  color: white;
+  height: 215px;
+  width: 300px;
+  justify-content: center;
+  position: relative;
+}
+
+.logo-bg{
+  background: rgba(213, 213, 213, 0.3);
+  filter: blur(100px);
+  border-radius: 6px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.logo-img{
+  background-image: url('../../assets/images/wave.png');
+  background-position:center;
+  background-size:contain;
+  background-repeat:no-repeat;
+  width: 3.125rem;
+  height: 2.412rem;
+  margin-bottom: 1.5rem;
+}

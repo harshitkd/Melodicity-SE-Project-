@@ -1,0 +1,55 @@
+.brand{
+  cursor: pointer;
+  font-size: 2rem;
+  letter-spacing: 0.25vw;
+  font-weight: 600;
+  position: relative;
+}
+.brand:after {
+  content:"";
+  background: -webkit-linear-gradient(left, white 0%,  #252629 100%);
+  display: block;
+  height:3px;
+  width: 150px;
+  position: absolute;
+  bottom: 0;
+  border-radius: 3px;
+}
+
+.navbar{
+  box-sizing: border-box;
+  position: fixed;
+  top:0;
+  /* background: #384e57; */
+  background: transparent;
+  color:white;
+  z-index: 10;
+  padding: 1rem 10vw;
+  transition: 0.5s;
+  width: 100%;
+}
+
+.nav-item{
+  font-size: .9rem;
+  letter-spacing: 0.1vw;
+  margin: 0 1vw;
+  padding: 0.3vh 0.5vw;
+  box-sizing: border-box;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.nav-item-login{
+  font-size: 1rem;
+  border-radius: 2rem;
+  padding: .5rem 2rem;
+  background-color: white;
+  color: black;
+  font-weight: 600;
+}
+
+@media screen and (max-width:568px){
+  .navbar{
+      padding: .675rem 5vw;
+  }
+}
