@@ -1,6 +1,6 @@
 import React from "react";
 import "./ChooseRole.css";
-import WaveAnimation from "../components/WaveAnimation";
+import WaveAnimation from '../../components/WaveAnimation/WaveAnimation'
 import { motion } from "framer-motion";
 
 function ChooseRole() {

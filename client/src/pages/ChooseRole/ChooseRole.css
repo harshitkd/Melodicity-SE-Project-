@@ -3,20 +3,10 @@
 * {
   padding: 0;
   margin: 0;
-  box-sizing: border-box;
   font-family: "Montserrat", sans-serif;
   color: white;
   font-weight: 400;
 }
-
-body {
-  background: #0d0d0d;
-  overflow-x: hidden;
-  height: 100%;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-}
-
 
 .choose-role-page {
   position: relative;
@@ -26,6 +16,8 @@ body {
   justify-content: flex-start;
   align-items: center;
   padding-top: 5%;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 .glow {
@@ -92,7 +84,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url(listener-image.png);
+  background-image: url('../../assets/images/listener-image.png');
   background-size: cover;
   z-index: -1;
   filter: blur(0) grayscale(100%);
@@ -106,15 +98,15 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url(artist-image.png);
+  background-image: url('../../assets/images/artist-image.png');
   background-size: cover;
   z-index: -1;
   filter: blur(0) grayscale(100%);
 }
 
 .listener-card-icon {
-  mask-image: url(Listener-icon.svg);
-  -webkit-mask-image: url(Listener-icon.svg);
+  mask-image: url('../../assets/images/Listener-icon.svg');
+  -webkit-mask-image: url('../../assets/images/Listener-icon.svg');
   mask-repeat: no-repeat;
   -webkit-mask-repeat: no-repeat;
   mask-position: center;
@@ -127,8 +119,8 @@ body {
 }
 
 .artist-card-icon {
-  mask-image: url(Music-wave.svg);
-  -webkit-mask-image: url(Music-wave.svg);
+  mask-image: url('../../assets/images/Music-wave.svg');
+  -webkit-mask-image: url('../../assets/images/Music-wave.svg');
   mask-repeat: no-repeat;
   -webkit-mask-repeat: no-repeat;
   mask-position: center;
