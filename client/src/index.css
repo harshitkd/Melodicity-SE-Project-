@@ -30,6 +30,9 @@ a{
 .justify-content-between{
   justify-content: space-between;
 }
+.justify-content-center{
+  justify-content: space-center;
+}
 .align-items-center{
   align-items: center;
 }

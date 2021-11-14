@@ -5,6 +5,7 @@ import Home from './pages/home/Home'
 import Login from './pages/login/Login';
 import Register from './pages/register/Register';
 import Role from './pages/ChooseRole/ChooseRole'
+import Profile from './pages/profile/Profile'
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route exact path={'/login'} component={Login} />
           <Route exact path={'/register'} component={Register} />
           <Route exact path={'/role'} component={Role} />
+          <Route exact path={'/profile'} component={Profile} />
         </Switch>
       </div>
     </Router> 

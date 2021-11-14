@@ -164,9 +164,6 @@
   transform: translateY(-1%);
 }
 
-.card:hover:before {
-  animation: coloringImage 1s ease-in forwards;
-}
 
 .card:hover .artist-card-icon,
 .card:hover .listener-card-icon {
@@ -177,14 +174,4 @@
   opacity: 1;
 }
 
-@keyframes coloringImage {
-  0% {
-    filter: grayscale(100%);
-  }
-  50% {
-    filter: grayscale(50%);
-  }
-  100% {
-    filter: grayscale(0%);
-  }
-}
+
