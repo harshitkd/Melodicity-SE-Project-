@@ -1,10 +1,12 @@
-import React from "react";
+import React, {useState} from "react";
 import "./ChooseRole.css";
 import WaveAnimation from '../../components/WaveAnimation/WaveAnimation'
 import { motion } from "framer-motion";
+import CreatorInfoModal from '../../components/modals/CreatorInfoModal'
 
 function ChooseRole() {
   //Animation properties
+    const [show,setShow] = useState(false);
   const wave = {
     before: {
       scale: 2.3,
@@ -49,6 +51,11 @@ function ChooseRole() {
   };
   return (
     <div className="choose-role-page">
+      <CreatorInfoModal 
+        show={show}
+        setShow={setShow}
+      />
+      
       <motion.div
         className="glow"
         initial={{ opacity: 0 }}
@@ -88,7 +95,7 @@ function ChooseRole() {
             </p>
           </div>
           <div className="card-container-line"></div>
-          <div className="card card-2">
+          <div className="card card-2" onClick={()=> setShow(true)}>
             <div className="artist-card-icon" />
             <div className="pad">
               <h1 className="pad-heading">Artist</h1>
