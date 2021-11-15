@@ -125,7 +125,8 @@ export const verify = async (req, res) => {
             throw Error('Verification link is incorrect or has beed expired.')
         
         if(!user.verificationLink)
-        throw Error('User already verified proceed to login.')
+            res.status(200).json({ message : 'Email Id already verified. Proceed to login.'})
+
         const isMatch = await bcrypt.compare(verificationLink, user.verificationLink);
         if (!isMatch) 
             throw Error('Verification link is incorrect or has beed expired.');
@@ -134,7 +135,7 @@ export const verify = async (req, res) => {
         user.verificationLink = null;
         await user.save();
 
-        res.status(200).json({ message : 'Email Id successfully verified. Proceed to login.' })
+        res.status(200).json({ message : 'Email Id successfully verified. Proceed to login.'})
     }
     catch(error){
         res.status(400).json({message : error.message});
