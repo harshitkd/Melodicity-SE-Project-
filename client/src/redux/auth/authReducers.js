@@ -8,17 +8,25 @@ import {
     USER_VERIFICATION_REQUEST,
     USER_VERIFICATION_SUCCESS,
     USER_VERIFICATION_FAILURE,
+    USER_PREREGISTER_REQUEST,
+    USER_PREREGISTER_SUCCESS,
+    USER_PREREGISTER_FAILURE,
+    UPDATE_PREUSER_INFO,
     USER_LOGOUT,
 } from './authTypes'
 
 export const authReducer = (initialState = {
     isLoading : false,
-    token : null
+    token : JSON.parse(localStorage.getItem('token')),
+    preRegistration : null,
+    preUserInfo : null,
+    isVerified : null
 }, action) => {
     switch(action.type){
         case USER_LOGIN_REQUEST : 
         case USER_REGISTER_REQUEST : 
         case USER_VERIFICATION_REQUEST :
+        case USER_PREREGISTER_REQUEST : 
             return {
                 ...initialState,
                 isLoading : true
@@ -27,6 +35,7 @@ export const authReducer = (initialState = {
             return {
                 ...initialState,
                 isLoading : false,
+                token : action.payload
             };
         
         case USER_REGISTER_SUCCESS :  
@@ -37,7 +46,8 @@ export const authReducer = (initialState = {
         case USER_VERIFICATION_SUCCESS :
             return {
                 ...initialState,
-                isLoading : false
+                isLoading : false,
+                isVerified : true
             }
         case USER_LOGIN_FAILURE : 
         case USER_REGISTER_FAILURE :
@@ -45,6 +55,23 @@ export const authReducer = (initialState = {
             return {
                 ...initialState,
                 isLoading : false
+            }
+        case USER_PREREGISTER_SUCCESS : 
+            return {
+                ...initialState,
+                isLoading : false,
+                preRegistration : true
+            }
+        case USER_PREREGISTER_FAILURE : 
+            return {
+                ...initialState,
+                isLoading : false,
+                preRegistration : false
+            }
+        case UPDATE_PREUSER_INFO : 
+            return {
+                ...initialState,
+                preUserInfo : action.payload
             }
         case USER_LOGOUT :
             return {

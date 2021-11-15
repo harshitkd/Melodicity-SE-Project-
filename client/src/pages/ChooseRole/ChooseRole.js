@@ -1,4 +1,6 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
+import {useHistory} from 'react-router-dom'
+import {useSelector} from 'react-redux'
 import "./ChooseRole.css";
 import WaveAnimation from '../../components/WaveAnimation/WaveAnimation'
 import { motion } from "framer-motion";
@@ -6,7 +8,13 @@ import CreatorInfoModal from '../../components/modals/CreatorInfoModal'
 
 function ChooseRole() {
   //Animation properties
-    const [show,setShow] = useState(false);
+  const history = useHistory()
+  const [show,setShow] = useState(false);
+  const preRegistration = useSelector(state => state?.auth?.preRegistration)
+  useEffect(()=>{
+    if(!preRegistration)
+      history.push('/register')
+  }, [preRegistration])
   const wave = {
     before: {
       scale: 2.3,
@@ -77,7 +85,7 @@ function ChooseRole() {
         initial={"before"}
         animate={"after"}>
         <motion.img
-          src="./Melodicity-logo.svg"
+          src="/Melodicity-logo.svg"
           alt="Melodicity Logo"
           className="melodicity-logo"
           variants={children}

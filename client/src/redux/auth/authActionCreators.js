@@ -5,9 +5,13 @@ import {
     USER_REGISTER_REQUEST,
     USER_REGISTER_SUCCESS,
     USER_REGISTER_FAILURE,
+    USER_PREREGISTER_REQUEST,
+    USER_PREREGISTER_SUCCESS,
+    USER_PREREGISTER_FAILURE,
     USER_VERIFICATION_REQUEST,
     USER_VERIFICATION_SUCCESS,
     USER_VERIFICATION_FAILURE,
+    UPDATE_PREUSER_INFO,
     USER_LOGOUT,
 } from './authTypes'
 
@@ -48,6 +52,23 @@ export const userRegisterFailure = () => {
     }
 }
 
+export const userPreregisterRequest = () => {
+    return {
+        type : USER_PREREGISTER_REQUEST
+    }
+}
+
+export const userPreregisterSuccess = () => {
+    return {
+        type : USER_PREREGISTER_SUCCESS
+    }
+}
+
+export const userPreregisterFailure = () => {
+    return {
+        type : USER_PREREGISTER_FAILURE
+    }
+}
 
 export const userVerificationRequest = () => {
     return {
@@ -64,6 +85,13 @@ export const userVerificationSuccess = () => {
 export const userVerificationFailure = () => {
     return {
         type : USER_VERIFICATION_FAILURE
+    }
+}
+
+export const updatePreuserInfo = (userInfo) => {
+    return {
+        type : UPDATE_PREUSER_INFO,
+        payload : userInfo
     }
 }
 

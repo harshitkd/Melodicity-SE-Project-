@@ -1,4 +1,5 @@
 import User from '../models/UserModel.js';
+import Creator from '../models/CreatorModel.js'
 import bcrypt from 'bcryptjs';
 import nodeMailer from 'nodemailer';
 import generateJwt from "../utils/generateJwt.js";
@@ -8,14 +9,13 @@ import mongoose from 'mongoose';
 const transporter = nodeMailer.createTransport({
     service: 'gmail',
     auth: {
-      user: 'iiit.com.help@gmail.com',
-      pass: 'iiit.com'
+      user: 'melodicity.help@gmail.com',
+      pass: 'melodicity123'
     }
 });
 
 export const login = async(req,res) => {
     const { email, password} = req.body;
-    
     try{
         if(!mongoose.connection.readyState)
             throw Error('Check your internet connection before proceeding.')
@@ -24,7 +24,7 @@ export const login = async(req,res) => {
         if(!user)
             throw Error('User does not exist');
 
-        if(!user.verified)
+        if(!user.isVerified)
             throw Error('Please verify your Email before proceeding to login.')
         const isMatch = await bcrypt.compare(password, user.password);
         
@@ -38,9 +38,9 @@ export const login = async(req,res) => {
     }
 }
 
-export const signup = async(req,res) => {
-    const { email, password, name} = req.body;
-    
+export const register = async(req,res) => {
+    const { email, password, name, creatorName, genre} = req.body;
+    console.log(email, password, name, creatorName)
     try{
         if(!mongoose.connection.readyState)
             throw Error('Check your internet connection before proceeding.')
@@ -52,16 +52,26 @@ export const signup = async(req,res) => {
         user = new User({
             email: email.toLowerCase(),
             password,
-            name
+            name,
+            isCreator : !!creatorName
         });
         
         user.password = await bcrypt.hash(password, 10);
         await user.save();
 
+        if(creatorName){
+            const creator = new Creator({
+                userId : user._id,
+                creatorName,
+                genre
+            })
+            await creator.save();
+        }
+
         crypto.randomBytes(64, async (err, buffer) => {
             const generatedString = buffer.toString('hex');
             const mailOptions = {
-                from: 'iiit.com.help@gmail.com',
+                from: 'melodicity.help@gmail.com',
                 to: user.email,
                 subject: 'Email Verification',
                 text: 'http://localhost:3000/verify/' + user._id +'/'+ generatedString + '/login'
@@ -77,6 +87,26 @@ export const signup = async(req,res) => {
               }
             });
         })
+    }
+    catch (error) {
+        res.status(400).json({ message : error.message });
+    }
+}
+
+export const preRegister = async (req, res) => {
+    const { email } = req.body;
+    console.log(email)
+    console.log("emial")
+    try{
+        if(!mongoose.connection.readyState)
+            throw Error('Check your internet connection before proceeding.')
+
+        let user = await User.findOne({email : email.toLowerCase()});
+        console.log("emial3")
+        if(user)
+            throw Error('Email already registered');
+        console.log("emial2")
+        res.status(200).json({preRegistration : true});
     }
     catch (error) {
         res.status(400).json({ message : error.message });

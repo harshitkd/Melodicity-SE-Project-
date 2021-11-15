@@ -130,6 +130,7 @@
   letter-spacing: 2px;
   cursor: pointer;
   transition: .3s;
+  background: transparent
 }
 
 
@@ -159,4 +160,29 @@
 .opt{
   color: #394d55;
   background-color: white;
+}
+
+.password-toggler{
+  font-size: 1rem;
+  color: #989898;
+  position: absolute;
+  right:1rem;
+  top:0.85rem;
+  background-color: transparent;
+  letter-spacing: 1px;
+  cursor: pointer;
+  z-index: 10;
+  color: blue;
+  opacity: 0.6;
+}
+
+
+.fa-spinner{
+  color:white;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }

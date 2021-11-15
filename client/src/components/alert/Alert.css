@@ -1,0 +1,33 @@
+.alert-container{
+    max-height: 200px;
+    width: 500px;
+    background-color: black;
+    position: absolute;
+    z-index: 100;
+    margin: 1rem auto;
+    left: 0;
+    right: 0;
+    border-radius: 10px;
+    box-shadow: 0 12px 25px 0 rgba(199, 175, 189, .25);
+    padding: 1rem;
+    transition: .1s;
+}
+
+.alert-btn-container{
+    justify-content: flex-end;
+    padding: 0 20px;
+}
+
+.alert-content{
+    overflow-y: scroll;
+    margin-bottom: 1rem;
+}
+
+.alert-btn{
+    padding: .5rem 2rem;
+    border-radius: .5rem;
+    cursor: pointer;
+    background-color: white;
+    color: black;
+    font-weight: 500;
+}
