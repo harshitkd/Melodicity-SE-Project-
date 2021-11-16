@@ -1,0 +1,33 @@
+.song-card {
+    width: 176px;
+    height: auto;
+    max-height: 218px;
+    background: rgba(196, 196, 196, 0.2);
+    border-radius: 8px;
+    margin-top: 20px;
+    padding: 14px;    
+    letter-spacing: 0.03em;
+    margin-right: 10px;
+    flex: 1 1 176px;
+}
+
+.song-cover {
+    border-radius: 4px;
+    height: 140px;
+}
+
+.card-info {
+    display: flex;
+    justify-content: space-between;
+}
+
+.song-name {
+    font-weight: 500;
+    font-size: 18px;
+}
+
+.option-btn {
+    cursor: pointer;
+}
+
+

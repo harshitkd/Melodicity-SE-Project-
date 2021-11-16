@@ -31,6 +31,7 @@
 
 .profile-heading {
     font-weight: 700;
+    font-size: 24px;
     margin: 10px 0;
 }
 
@@ -40,23 +41,23 @@
     align-items: center;
     background-color: #0d0d0d;
     width: 100%;
-    height: 80vh;
-    border-radius: 28px 28px 0 0;
+    height: auto;
+    border-radius: 22px 22px 0 0;
     position: relative;
-    top: -70px;
+    top: -80px;
+    padding-top: 7em;
 }
 
 .profile-card-glass {
     background: linear-gradient(105.49deg, rgba(255, 255, 255, 0.32) 9.13%, rgba(255, 255, 255, 0.08) 65.38%);
     backdrop-filter: blur(30px);
     border-radius: 28px;
-    position: relative;
-    top: -185px;
+    position: absolute;
+    top: -195px;
     width: 75%;
-    height: 275px;
+    height: 255px;
     display: flex;
     padding: 2em 3em;
-    position: relative;
 }
 
 .right-info-section {
@@ -64,19 +65,37 @@
     width: 100%;
 }
 
-.user-photo {
-    height: 166px;
+.user-photo-container {
+    position: relative;
+    clip-path: circle(49% at 50% 50%);
 }
 
-.user-photo::after {
-    content: "";
-    height: 30%;
+.user-photo {
+    height: 155px;
+}
+
+.edit-overlay {
+    position: absolute;
+    bottom: -59px;
+    height: 100px;
     width: 100%;
     background: white;
+    display: flex;
+    justify-content: center;
+    transform: translateY(45px);
+    transition: transform 0.8s ease;
+    cursor: pointer;
 }
 
-.user-photo:hover {
+.edit-overlay img {
+    height: 20px;
+    color: #363636;
+    position: relative;
+    top: 8px;
+}
 
+.user-photo-container:hover .edit-overlay{
+    transform: translateY(0px);
 }
 
 .user-name {
@@ -86,18 +105,19 @@
 }
 
 .artist-tag {
-    width: 85px;
-    height: 30px;
+    width: 76.5px;
+    height: 27px;
     background: rgba(196, 196, 196, 0.24);
     border-radius: 16px;
     display: flex;
     justify-content: center;
     font-weight: 600;
+    font-size: 15px;
     align-items: center;
 }
 
 .bottom-right-section {
-    margin-top: 70px;
+    margin-top: 58px;
     display: flex;
     justify-content: space-between;
     width: 100%;
@@ -108,6 +128,7 @@
     display: flex;
     align-items: center;
     font-weight: 500;
+    font-size: 14px;
 }
 
 .dot {
@@ -125,8 +146,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 5px;
-    width: 97px;
+    padding: 5px 8px;
+    width: 100px;
     font-weight: 500;
     font-size: 15px;
 }
@@ -134,4 +155,48 @@
 .edit-icon {
     position: absolute;
     right: 3em;
+    cursor: pointer;
+}
+
+.song-section {
+    display: flex;
+    flex-direction: column;
+    width: 84.2%;
+}
+
+.category {
+    position: relative;
+}
+
+.category:not(:first-child) {
+    margin-top: 30px;
+}
+
+.category-name {
+    font-weight: 600;
+    font-size: 30px;
+}
+
+.song-list {
+    display: flex;
+    justify-content: flex-start;
+    overflow-x: auto;
+    width: min-content;
+}
+
+.playlist {
+    width: 176px;
+    background: rgba(196, 196, 196, 0.2);
+    border-radius: 3px;
+    padding: 1em 14px;
+    margin-right: 10px;
+    margin-top: 20px;
+}
+
+.show-more-btn {
+    background: transparent;
+    opacity: 0.6;
+    margin-top: 10px;
+    position: absolute;
+    right: 0;
 }
