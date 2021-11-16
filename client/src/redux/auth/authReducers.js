@@ -18,6 +18,8 @@ import {
 export const authReducer = (initialState = {
     isLoading : false,
     token : JSON.parse(localStorage.getItem('token')),
+    isCreator : localStorage.getItem('isCreator'),
+    userId : localStorage.getItem('userId'),
     preRegistration : null,
     preUserInfo : null,
     isVerified : null
@@ -35,7 +37,9 @@ export const authReducer = (initialState = {
             return {
                 ...initialState,
                 isLoading : false,
-                token : action.payload
+                token : action.payload.token,
+                isCreator : action.payload.isCreator,
+                userId : action.payload.userId
             };
         
         case USER_REGISTER_SUCCESS :  
@@ -76,7 +80,9 @@ export const authReducer = (initialState = {
         case USER_LOGOUT :
             return {
                 ...initialState,
-                token : null
+                token : null,
+                isCreator : null,
+                userId : null
             };
         default :
             return initialState;

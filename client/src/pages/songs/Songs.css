@@ -1,0 +1,34 @@
+.search-songs {
+    border-radius: 45px;
+    background: #633bc9;
+    padding: 10px 20px; 
+    width: 370px;
+    height: 45px;   
+    border: none;
+    outline: none; 
+    margin-top: .75rem;
+    font-size: 1.1rem;
+}
+
+.search-songs::placeholder {
+    color: #b6a0e8;
+    opacity: 1; /* Firefox */
+    font-size: 1.1rem;
+  }
+
+.songs-heading{
+    font-size: 2rem;
+    width: 100%;
+    height: fit-content;
+    margin-bottom: 1rem;
+}
+
+.songs-card-glass{
+    top: -75px;
+    height: fit-content;
+    align-items: center;
+}
+
+.songs-heading > button {
+    height: fit-content;
+}

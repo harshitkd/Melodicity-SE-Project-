@@ -5,6 +5,11 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: white;
+  user-select: none;
+}
+
+button {
+  border: none;
 }
 
 code {
@@ -29,6 +34,9 @@ a{
 }
 .justify-content-between{
   justify-content: space-between;
+}
+.justify-content-center{
+  justify-content: space-center;
 }
 .align-items-center{
   align-items: center;

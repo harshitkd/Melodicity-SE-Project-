@@ -1,0 +1,134 @@
+* {
+    /* box-sizing: border-box; */
+    letter-spacing: 0.03em;
+}
+
+.top-background {
+    /* display: flex;
+    flex-direction: column;
+    align-items: center; */
+    height: 400px;
+    width: 100%;
+    background: linear-gradient(149deg, rgba(107,60,241,1) 10%, rgb(81, 41, 192) 29%, rgba(15,13,16,1) 100%);
+    box-sizing: border-box;
+    padding-top: 2.5em;
+    padding-left: 3em;
+    position: relative;
+}
+
+.back-icon {
+    height: 40px;
+    cursor: pointer;
+    position: absolute;
+}
+
+.logo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.profile-heading {
+    font-weight: 700;
+    margin: 10px 0;
+}
+
+.bottom-background {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #0d0d0d;
+    width: 100%;
+    height: 80vh;
+    border-radius: 28px 28px 0 0;
+    position: relative;
+    top: -70px
+}
+
+.profile-card-glass {
+    background: linear-gradient(105.49deg, rgba(255, 255, 255, 0.32) 9.13%, rgba(255, 255, 255, 0.08) 65.38%);
+    backdrop-filter: blur(30px);
+    border-radius: 28px;
+    position: relative;
+    top:-185px;
+    width: 75%;
+    height: 275px;
+    display: flex;
+    padding: 2em 3em;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.right-info-section {
+    padding: 1em 0 0 2em;
+    width: 100%;
+}
+
+.user-photo {
+    height: 166px;
+}
+
+.user-photo::after {
+    content: "";
+    height: 30%;
+    width: 100%;
+    background: white;
+}
+
+.user-name {
+    font-weight: 600;
+    font-size: 56.5973px;
+    letter-spacing: 0.03em;
+}
+
+.artist-tag {
+    width: 85px;
+    height: 30px;
+    background: rgba(196, 196, 196, 0.24);
+    border-radius: 16px;
+    display: flex;
+    justify-content: center;
+    font-weight: 600;
+    align-items: center;
+}
+
+.bottom-right-section {
+    margin-top: 70px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.stats {
+    opacity: 0.63;
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+}
+
+.dot {
+    height: 5px;
+    width: 5px;
+    background: white;
+    opacity: 0.63;
+    border-radius: 50%;
+    margin: 0 5px;
+}
+
+.publish-btn {
+    background: rgba(196, 196, 196, 0.24);
+    border-radius: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    width: 97px;
+    font-weight: 500;
+    font-size: 15px;
+}
+
+.edit-icon {
+    position: absolute;
+    right: 3em;
+}

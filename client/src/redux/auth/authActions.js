@@ -24,7 +24,9 @@ export const userLogin = (userInfo) => {
             .post('/api/user/auth-routes/login', userInfo)
             .then((res => {
                 localStorage.setItem('token',JSON.stringify(res.data.token));
-                dispatch(userLoginSuccess(res.data.token));
+                localStorage.setItem('isCreator',res.data.isCreator);
+                localStorage.setItem('userId',res.data.userId);
+                dispatch(userLoginSuccess(res.data));
             }))
             .catch((err) => {
                 dispatch(addAlert(err.response.data.message));
@@ -85,6 +87,8 @@ export const userVerification = (verificationInfo) => {
 export const userLogout = () => {
     return (dispatch) => {
         localStorage.setItem("token", null);
+        localStorage.setItem('isCreator',null);
+        localStorage.setItem('userId',null);
         dispatch(logout());
     }
 }
