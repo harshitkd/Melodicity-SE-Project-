@@ -27,6 +27,9 @@ Our project Melodicity is a music label and music web streaming platform which i
 ## Login/Register Page
 [image]
 
+## Choose Role Page
+[image]
+
 ## Song List
 [image]
 
