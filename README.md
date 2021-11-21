@@ -27,6 +27,9 @@ Our project Melodicity is a music label and music web streaming platform which i
 ## Login/Register Page
 [image]
 
+## Choose Role Page
+[image]
+
 ## Song List
 [image]
 
@@ -41,4 +44,4 @@ Bansil Pagdhal | 2019IMT-069
 
 ### License
 
-The Melodicity is free and open-source software licensed under the GNU General Public License v3.0.
+The Melodicity is free and open-source software licensed under the MIT License.
