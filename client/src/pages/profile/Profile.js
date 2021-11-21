@@ -1,4 +1,4 @@
-import React,{ useEffect} from 'react';
+import React,{ useState, useEffect} from 'react';
 import {useParams, useHistory} from 'react-router-dom'
 import {useDispatch, useSelector} from 'react-redux'
 import './Profile.css';
@@ -6,11 +6,14 @@ import WaveAnimation from '../../components/WaveAnimation/WaveAnimation';
 import SongCard from '../../components/songCard/SongCard';
 import Loader from '../../components/loader/Loader'
 import { getUserDetails } from '../../redux/user/userActions';
+import PublishModal from '../../components/modals/pubishModal/PublishModal';
+import { userLogout } from '../../redux/auth/authActions';
 
 
 
 function Profile() {
     const songList = [...Array(8).keys()];
+    const [show, setShow] = useState(false)
     const playlistCollection = [...Array(3).keys()];
 	const history = useHistory();
     const dispatch = useDispatch();
@@ -27,6 +30,10 @@ function Profile() {
             {isLoading && <Loader />}
             {   userInfo &&
 				<div className='profile-page'>
+                    <PublishModal 
+                        show={show}
+                        setShow={setShow}
+                    />
 					<div className='top-background'>
 						<img src="/back-icon.svg" alt='' className='back-icon' onClick={()=> history.goBack()} />
 						<div className="logo-container">
@@ -54,14 +61,14 @@ function Profile() {
 								<div className="bottom-right-section">
 									<div className="stats">100 Followers <div className='dot' /> 100 Listeners</div> {/* fetch from user database */}
 									{   userInfo.isCreator && 
-                                        <button className='publish-btn'> {/*if user == artist*/}
+                                        <button className='publish-btn' onClick={()=>setShow(true)}> {/*if user == artist*/}
                                             <img src="/plus-icon.svg" alt="publish" className='plus-icon' />
                                             Publish
                                         </button>
                                     }
 								</div>
 							</div>
-							<img src="/pencil.svg" alt="edit" className='edit-icon' />
+							<img src="/pencil.svg" alt="edit" className='edit-icon' onClick={() => dispatch(userLogout())}/>
 						</div>
 						<div className="song-section">
 							<div className="category">

@@ -8,7 +8,6 @@ export const protect = (req, res, next) => {
       const data = jwt.verify(req.headers.authorization, process.env.jwtsecret);
       if(!data)
         throw Error("You are not authorized to see the requested data.");
-
       req.userId = data.userId;
       next();
     } 

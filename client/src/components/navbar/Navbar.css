@@ -53,3 +53,34 @@
       padding: .675rem 5vw;
   }
 }
+
+.navbar-options{
+  min-width: 600px;
+}
+
+.navbar-options > span{
+  cursor: pointer;
+}
+
+.navbar-search{
+  /* width: 185px;
+  height: 34px; */
+  padding: 7px 20px;
+  background: rgba(196, 196, 196, 0.24);
+  border-radius: 15.6233px;
+  color: #9b9b9b;
+}
+
+.navbar-search > .fas {
+  color: #9b9b9b;
+}
+
+.nav-item-logout{
+  font-size: 1rem;
+  border-radius: 2rem;
+  padding: .5rem .75rem;
+  background: linear-gradient(105.49deg, rgba(255, 255, 255, 0.32) 9.13%, rgba(255, 255, 255, 0.08) 65.38%);
+  backdrop-filter: blur(11.6279px);
+  color: black;
+  font-weight: 600;
+}

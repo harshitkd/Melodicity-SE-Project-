@@ -2,7 +2,10 @@ import axios from 'axios'
 import { 
     getUserDetailsRequest,
     getUserDetailsSuccess,
-    getUserDetailsFailure
+    getUserDetailsFailure,
+    publishSongRequest,
+    publishSongSuccess,
+    publishSongFailure
 } from './userActionCreators';
 import {addAlert} from '../alert/alertActions'
 
@@ -17,6 +20,21 @@ export const getUserDetails = (data) => {
         .catch(err => {
             dispatch(addAlert(err.response.data.message));
             dispatch(getUserDetailsFailure());
+        })
+    }
+}
+
+export const publishSong = (data) => {
+    return (dispatch) => {
+        dispatch(publishSongRequest());
+        const config = constructHeader(data.token);
+        axios.post('/api/user/user-routes/publish', data.publishInfo, config )
+        .then(res => {
+            dispatch(publishSongSuccess(res.data));
+        })
+        .catch(err => {
+            dispatch(addAlert(err.response.data.message));
+            dispatch(publishSongFailure());
         })
     }
 }

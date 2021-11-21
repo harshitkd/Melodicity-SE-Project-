@@ -1,0 +1,64 @@
+.publish-form{
+    background: linear-gradient(105.49deg, rgba(255, 255, 255, 0.32) 9.13%, rgba(255, 255, 255, 0.08) 65.38%);
+    backdrop-filter: blur(50px);
+    width: 500px;
+    padding: 1rem 2rem;
+}
+
+.ant-upload.ant-upload-drag{
+    /* background: linear-gradient(105.49deg, rgba(255, 255, 255, 0.32) 9.13%, rgba(255, 255, 255, 0.08) 65.38%);
+    backdrop-filter: blur(50px); */
+    border-radius: 15px;
+    background: transparent;
+}
+
+.publish-upload-text{
+    justify-content: center;
+}
+.publish-upload-text > span{
+    background: rgba(196, 196, 196, 0.24);
+    border-radius: 7px;
+    color: #D9D9D9;
+    width: fit-content;
+    padding: .25rem 1rem;
+}
+
+.publishchoose-upload-text{
+    justify-content: center;
+}
+.publishchoose-upload-text > span{
+    background: white;
+    border-radius: 7px;
+    color:black;
+    width: fit-content;
+    padding: .25rem 1rem;
+}
+
+.publish-icon{
+    font-size: 3rem;
+    justify-content: center;
+    margin-bottom: 1rem;
+    opacity: .25;
+}
+.file{
+    opacity: 0;
+    height: .1px;
+    width: .1px;
+    position: absolute;
+}
+
+.publish-submit-btn {
+    outline: none;
+    background: transparent;
+    border-radius: 1rem;
+    border:1px solid #c62fd6;
+    padding:.25rem 1rem ;
+    margin-right: 1.5rem;
+}
+
+.publish-cancel-btn{
+    padding:.25rem 1rem ;
+    outline: none;
+    background: rgba(196, 196, 196, 0.24);
+    border-radius: 5.99447px;
+}

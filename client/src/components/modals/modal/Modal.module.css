@@ -12,6 +12,7 @@
     z-index: 100;
     overflow-x: hidden;
     background-color: rgba(31, 32, 41, .75);
+    /* background-color: black; */
     pointer-events: none;
     opacity: 0;
     transition: opacity 250ms 700ms ease;
@@ -32,8 +33,8 @@
     border-radius: 6px;
     background-color: transparent;
     align-self: center;
-    box-shadow: 0 12px 25px 0 rgba(199, 175, 189, .25);
-    opacity: 0;
+    /* box-shadow: 0 12px 25px 0 rgba(199, 175, 189, .25); */
+    /* opacity: 0; */
     transform: scale(0.6);
     transition: opacity 250ms 250ms ease, transform 300ms 250ms ease;
     transform: scale(0);

@@ -1,0 +1,23 @@
+.music-player-page-image{
+    height: 300px;
+    width: 300px;
+    background-color: yellow;
+    position: absolute;
+    left:-1rem;
+    top: -200px;
+    border-radius: 1rem;
+}
+
+.music-player-page-info{
+    height: 200px;
+    width: 300px;
+    background-color: yellow;
+    position: absolute;
+    right:-1rem;
+    top: -100px;
+}
+
+.music-player-page-parent{
+    position: relative;
+    width: 650px;
+}

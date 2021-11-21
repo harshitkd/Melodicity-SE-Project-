@@ -1,5 +1,6 @@
 import {BrowserRouter as Router, Route, Switch, Redirect, useLocation} from 'react-router-dom';
 import {useSelector} from 'react-redux'
+// import 'antd/dist/antd.css';
 import './App.css';
 import Alert from './components/alert/Alert'
 import Home from './pages/home/Home'
@@ -9,20 +10,25 @@ import Role from './pages/ChooseRole/ChooseRole'
 import Verify from './pages/verify/Verify'
 import Profile from './pages/profile/Profile'
 import Songs from './pages/songs/Songs';
+import MusicPlayer from './components/musicPlayer/MusicPlayer';
+import MusicPlayerPage from './pages/musicPlayerPage/MusicPlayerPage';
 
 function App() {
   const token = useSelector(state => state?.auth?.token)
+  const songs = useSelector(state => state?.songs?.songs)
   return (
     <Router>
       <div className="App"> 
         
         <Alert />
+        {token && <MusicPlayer songs={songs} />}
         {/* <Switch> */}
           { token && 
               <Switch> 
                 <Route exact path={'/'} component={Home} />
                 <Route exact path={'/profile/:id'} component={Profile}/>
                 <Route exact path={'/songs'} component={Songs} />
+                <Route exact path={'/songs/:id'} component={MusicPlayerPage} />
                 <Route path='*'>
                   <Redirect to='/' />
                 </Route>

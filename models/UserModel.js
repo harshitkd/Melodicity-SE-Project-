@@ -27,6 +27,12 @@ const userSchema = new mongoose.Schema({
         type : Boolean,
         default : false
     },
+    likedSongs : [
+      {
+        type : mongoose.Schema.Types.ObjectId,
+        ref : "Creation"
+      }
+    ]
 },
 {
     timestamps : true

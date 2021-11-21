@@ -201,3 +201,7 @@
     position: absolute;
     right: 0;
 }
+
+.fa-sign-out-alt{
+    height: fit-content;
+}

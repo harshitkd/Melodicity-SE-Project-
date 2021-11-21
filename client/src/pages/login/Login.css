@@ -130,9 +130,13 @@
   letter-spacing: 2px;
   cursor: pointer;
   transition: .3s;
-  background: transparent
+  background: transparent;
 }
 
+.submit{
+  border: none;
+  background: linear-gradient(129.16deg, #EF6EDA 18.59%, rgba(0, 0, 0, 0) 108.16%);
+}
 
 .opt:hover{
   background-color: transparent;

@@ -131,7 +131,7 @@ export const verify = async (req, res) => {
         if (!isMatch) 
             throw Error('Verification link is incorrect or has beed expired.');
 
-        user.verified = true;
+        user.isVerified = true;
         user.verificationLink = null;
         await user.save();
 
