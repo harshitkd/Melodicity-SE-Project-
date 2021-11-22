@@ -26,45 +26,46 @@ To Run Test Suite:
 
 `npm test`  
 
-To Start Server:
+To Start App:
 
-`npm start`  
+`npm run dev`  
 
 To Visit App:
 
-`localhost:3000/ideas`  
+`localhost:3000/`  
 
-
-## Landing Page
+## Design
+### Landing Page
 
 ![Landing Page (1)](https://user-images.githubusercontent.com/56076028/142868867-6914f523-dd00-4579-aea9-18cdfff2852b.png)
 
-## Profile Page
+### Profile Page
 
 ![User Profile](https://user-images.githubusercontent.com/56076028/142869229-1d06ae70-d05e-4512-b7ca-2288c01be48f.png)
 
 
-## Music Player
+### Music Player
 
 ![Music player](https://user-images.githubusercontent.com/56076028/142867884-d56d0653-3585-4ec9-bd79-554d109eb38d.png)
+![Music Player bar](https://user-images.githubusercontent.com/56076028/142876652-3c881605-208f-4ebb-a362-c2de632aa003.png)
 
 
-## Login/Register Page
+### Login/Register Page
 
 ![Login](https://user-images.githubusercontent.com/56076028/142867979-b4d23e0f-f476-40b8-94d8-f3b0856aee63.png)
 
 
-## Choose Role Page
+### Choose Role Page
 
 ![Choose role](https://user-images.githubusercontent.com/56076028/142867997-9e7ecb36-13e4-4d2e-8264-d43eea23142c.png)
 
 
-## Song List
+### Song List
 
 ![Song list](https://user-images.githubusercontent.com/56076028/142868903-74bf96c1-4138-4917-83f7-16d7bb225d7e.png)
 
 
-## Team Members
+# Team Members
 
 Student Name | Roll No.
 ---|---
