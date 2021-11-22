@@ -6,11 +6,11 @@
 Our project Melodicity is a music label and music web streaming platform which is a web-based application built around a single server that handles all the major processing. It will act as a platform for the creators to share their music and apply for the record labels approvals and it also provides listeners with a place to discover new genres of music. 
 
 ## Tech Stack
-* Reactjs: It's a front end library used for handling the view layer for web applications.
-* Nodejs: It is primarily used for non-blocking, event-driven servers, due to its single-threaded nature.
-* MongoDB: MongoDB is a database tool that can manage document-oriented information, store or retrieve information.
+* [Reactjs](https://github.com/reactjs/reactjs.org "Reactjs") : It's a front end library used for handling the view layer for web applications.
+* [Nodejs](https://github.com/nodejs/node "NodeJs"): It is primarily used for non-blocking, event-driven servers, due to its single-threaded nature.
+* [MongoDB](https://docs.mongodb.com/ "MongoDB"): MongoDB is a database tool that can manage document-oriented information, store or retrieve information.
 * Javascript: JavaScript is a text-based programming language used both on the client-side and server-side that allows you to make web pages interactive.
-* Redux: Redux is the root file which is responsible for the creation of store and rendering our react app component.
+* [Redux](https://github.com/reduxjs/redux "Redux"): Redux is the root file which is responsible for the creation of store and rendering our react app component.
 * HTML: It is used to structure a web page and its content. For example, content could be structured within a set of paragraphs, a list of bulleted points, or using images and data tables.
 * CSS: It is a style sheet language which is used to describe the look and formatting of a document written in markup language.
 * git: Software for tracking changes in any set of files, usually used for coordinating work among programmers collaboratively developing source code during software development.
