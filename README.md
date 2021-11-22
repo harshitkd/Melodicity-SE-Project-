@@ -16,26 +16,32 @@ Our project Melodicity is a music label and music web streaming platform which i
 * git
 
 ## Landing Page
-![Landing Page](https://user-images.githubusercontent.com/56076028/142867825-7490e7f5-9b2f-455e-ae78-5f5c04051ff9.png)
 
+![Landing Page (1)](https://user-images.githubusercontent.com/56076028/142868867-6914f523-dd00-4579-aea9-18cdfff2852b.png)
 
 ## Profile Page
 
+![User Profile](https://user-images.githubusercontent.com/56076028/142869229-1d06ae70-d05e-4512-b7ca-2288c01be48f.png)
 
 
 ## Music Player
+
 ![Music player](https://user-images.githubusercontent.com/56076028/142867884-d56d0653-3585-4ec9-bd79-554d109eb38d.png)
 
 
 ## Login/Register Page
+
 ![Login](https://user-images.githubusercontent.com/56076028/142867979-b4d23e0f-f476-40b8-94d8-f3b0856aee63.png)
 
 
 ## Choose Role Page
+
 ![Choose role](https://user-images.githubusercontent.com/56076028/142867997-9e7ecb36-13e4-4d2e-8264-d43eea23142c.png)
 
 
 ## Song List
+
+![Song list](https://user-images.githubusercontent.com/56076028/142868903-74bf96c1-4138-4917-83f7-16d7bb225d7e.png)
 
 
 ## Team Members
