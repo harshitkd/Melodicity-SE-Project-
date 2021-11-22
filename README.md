@@ -15,6 +15,26 @@ Our project Melodicity is a music label and music web streaming platform which i
 * CSS: It is a style sheet language which is used to describe the look and formatting of a document written in markup language.
 * git: Software for tracking changes in any set of files, usually used for coordinating work among programmers collaboratively developing source code during software development.
 
+## Installation and Setup Instructions
+Clone down this repository. You will need `node` and `npm` installed globally on your machine.  
+
+Installation:
+
+`npm install`  
+
+To Run Test Suite:  
+
+`npm test`  
+
+To Start Server:
+
+`npm start`  
+
+To Visit App:
+
+`localhost:3000/ideas`  
+
+
 ## Landing Page
 
 ![Landing Page (1)](https://user-images.githubusercontent.com/56076028/142868867-6914f523-dd00-4579-aea9-18cdfff2852b.png)
