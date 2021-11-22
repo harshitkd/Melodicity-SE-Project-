@@ -10,7 +10,6 @@ export const getUserDetails = async(req, res) => {
                                       
         if(!user)
             throw Error("User you are looking for does not exist.")
-
         res.status(200).send(user);
     }
     catch(err){

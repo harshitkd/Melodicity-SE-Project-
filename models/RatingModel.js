@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const creatorSchema = new mongoose.Schema({
+const ratingSchema = new mongoose.Schema({
     userId: {
         type : mongoose.Schema.Types.ObjectId,
         ref : "User"
@@ -19,6 +19,6 @@ const creatorSchema = new mongoose.Schema({
 })
 
 
-const Creator = mongoose.model("Creator", creatorSchema);
+const Rating = mongoose.model("Rating", ratingSchema);
 
-export default Creator;
+export default Rating;

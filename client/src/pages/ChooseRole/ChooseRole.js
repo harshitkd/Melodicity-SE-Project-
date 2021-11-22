@@ -1,20 +1,30 @@
 import React, {useState, useEffect} from "react";
 import {useHistory} from 'react-router-dom'
-import {useSelector} from 'react-redux'
+import {useSelector, useDispatch} from 'react-redux'
 import "./ChooseRole.css";
 import WaveAnimation from '../../components/WaveAnimation/WaveAnimation'
 import { motion } from "framer-motion";
 import CreatorInfoModal from '../../components/modals/CreatorInfoModal'
+import { userRegister } from "../../redux/auth/authActions";
 
 function ChooseRole() {
   //Animation properties
   const history = useHistory()
   const [show,setShow] = useState(false);
   const preRegistration = useSelector(state => state?.auth?.preRegistration)
+  const userInfo = useSelector(state => state?.auth?.preUserInfo)
+  const dispatch = useDispatch();
   useEffect(()=>{
     if(!preRegistration)
       history.push('/register')
   }, [preRegistration])
+
+  const handleRegister = () => {
+    const m = {
+        ...userInfo
+    }
+    dispatch(userRegister(m))
+  }
   const wave = {
     before: {
       scale: 2.3,
@@ -94,7 +104,7 @@ function ChooseRole() {
           Tell us who you are
         </motion.h1>
         <motion.div className="card-container" variants={children}>
-          <div className="card card-1">
+          <div className="card card-1" onClick={handleRegister}>
             <div className="listener-card-icon" />
             <h1 className="card-heading">Listener</h1>
             <p className="card-description">

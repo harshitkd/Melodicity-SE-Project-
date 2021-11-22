@@ -21,7 +21,7 @@ function App() {
       <div className="App"> 
         
         <Alert />
-        {token && <MusicPlayer songs={songs} />}
+        {token && <MusicPlayer />}
         {/* <Switch> */}
           { token && 
               <Switch> 

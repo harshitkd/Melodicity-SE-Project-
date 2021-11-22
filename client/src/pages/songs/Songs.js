@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux'
 import WaveAnimation from '../../components/WaveAnimation/WaveAnimation';
 import {useHistory} from 'react-router-dom'
@@ -7,6 +7,7 @@ import Logo from '../../components/logo/Logo'
 import SongCard from '../../components/songList/SongCard'
 import { getAllSongs } from '../../redux/songs/songsActions';
 import Loader from '../../components/loader/Loader';
+import RatingModal from '../../components/modals/ratingModal/RatingModal'
 
 function Songs() {
     const dispatch = useDispatch()
@@ -14,11 +15,19 @@ function Songs() {
     const isLoading = useSelector(state => state?.songs?.isLoading)
     const songs = useSelector(state => state?.songs?.songs)
     const history = useHistory();
+    const [showRatingModal, setShowRatingModal] = useState(false)
+    const [songId, setSongId] = useState(null)
+
     useEffect(()=>{
         dispatch(getAllSongs({token}))
     },[])
     return (
         <>
+            <RatingModal 
+                show={showRatingModal}
+                setShow = {setShowRatingModal}
+                songId = {songId}
+            />
             {isLoading && <Loader />}
             <div className='profile-page'>
                 <div className='top-background'>
@@ -44,7 +53,7 @@ function Songs() {
                         <div className="songs-list d-flex flex-column align-items-center">
                             {
                                 songs?.map(
-                                    song => <SongCard song={song} />
+                                    song => <SongCard song={song} setShow={setShowRatingModal} setSongId={setSongId}/>
                                 )
                             }
                         </div>

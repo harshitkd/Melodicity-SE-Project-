@@ -12,7 +12,9 @@ import { userLogout } from '../../redux/auth/authActions';
 
 
 function Profile() {
-    const songList = [...Array(8).keys()];
+    const creations = useSelector(state => state?.user?.userInfo?.creations)
+    const likedSongs = useSelector(state => state?.user?.userInfo?.likedSongs)
+    const ratedSongs = useSelector(state => state?.user?.userInfo?.rated)
     const [show, setShow] = useState(false)
     const playlistCollection = [...Array(3).keys()];
 	const history = useHistory();
@@ -71,33 +73,37 @@ function Profile() {
 							<img src="/pencil.svg" alt="edit" className='edit-icon' onClick={() => dispatch(userLogout())}/>
 						</div>
 						<div className="song-section">
+                        {   userInfo.isCreator && creations && 
 							<div className="category">
 								<h1 className="category-name">Your Songs</h1> {/*if user == artist*/}
 								<div className="song-list">
-									{songList.slice(0, 7).map((songInfo, id) => {
-										return <SongCard songTitle={""} songCover={""} key={id} />
+									{ creations.slice(0, 7).map((songInfo, id) => {
+										return <SongCard songTitle={songInfo.name} songCover={songInfo.cover} key={songInfo._id} />
 									})}
 								</div>
-								{(songList.length > 7) && <button className='show-more-btn'>Show more</button>}
+								{(creations.length > 7) && <button className='show-more-btn'>Show more</button>}
 							</div>
-							<div className="category">
+                        }
+							{   !!likedSongs.length  &&
+                                <div className="category">
 								<h1 className="category-name">Your Favorites</h1>
 								<div className="song-list">
-									{songList.slice(0, 7).map((songInfo, id) => {
-										return <SongCard songTitle={""} songCover={""} key={id} />
+									{likedSongs.slice(0, 7).map((songInfo, id) => {
+										return <SongCard songTitle={songInfo.name} songCover={songInfo.cover} key={id} />
 									})}
 								</div>
-								{(songList.length > 7) && <button className='show-more-btn'>Show more</button>}
-							</div>
-							<div className="category">
+								{(likedSongs.length > 7) && <button className='show-more-btn'>Show more</button>}
+							</div>}
+							{   (ratedSongs && !!ratedSongs.length) &&
+                                <div className="category">
 								<h1 className="category-name">Songs you rated</h1>
 								<div className="song-list">
-									{songList.slice(0, 7).map((songInfo, id) => {
-										return <SongCard songTitle={""} songCover={""} rating={1} key={id} />
+									{ratedSongs.slice(0, 7).map((songInfo, id) => {
+										return <SongCard songTitle={songInfo.creationId.name} songCover={songInfo.creationId.cover} rating={1} key={id} />
 									})}
 								</div>
-								{(songList.length > 7) && <button className='show-more-btn'>Show more</button>}
-							</div>
+								{(ratedSongs.length > 7) && <button className='show-more-btn'>Show more</button>}
+							</div>}
 							<div className="category">
 								<h1 className="category-name">Your Playlists</h1>
 								<div className="song-list">
@@ -106,6 +112,7 @@ function Profile() {
 											<div className="playlist">Playlist Title</div> // if user == artist
 										)
 									})}
+									<div className="playlist"> <i className="fas fa-plus"></i> Create Playlist</div>
 								</div>
 								{(playlistCollection.length > 7) && <button className='show-more-btn'>Show more</button>}
 							</div>

@@ -1,0 +1,13 @@
+.rating-modal  .fa-star{
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: .5rem;
+}
+.star-container{
+    justify-content: center;
+    padding-bottom: 2rem;
+}
+
+.submit-rating-btn{
+    justify-content: flex-end;
+}
