@@ -77,7 +77,16 @@
     height: 155px;
 }
 
-.edit-overlay {
+.logout-btn {
+    font-size: 1rem;
+    border-radius: 2rem;
+    padding: .5rem 1rem;
+    background-color: white;
+    color: black;
+    font-weight: 600;
+}
+
+/* .edit-overlay {
     position: absolute;
     bottom: -59px;
     height: 100px;
@@ -88,14 +97,14 @@
     transform: translateY(45px);
     transition: transform 0.8s ease;
     cursor: pointer;
-}
+} */
 
-.edit-overlay img {
+/* .edit-overlay img {
     height: 20px;
     color: #363636;
     position: relative;
     top: 8px;
-}
+} */
 
 .user-photo-container:hover .edit-overlay{
     transform: translateY(0px);
