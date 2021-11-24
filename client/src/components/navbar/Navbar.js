@@ -4,7 +4,7 @@ import { useSelector} from 'react-redux'
 
 import './Navbar.css'
 
-const Navbar = () => {
+const Navbar = ({setShow}) => {
   const token = useSelector(state => state?.auth?.token)
   const userId = useSelector(state => state?.auth?.userId)
   const isCreator = useSelector(state => state?.auth?.isCreator)
@@ -32,7 +32,7 @@ const Navbar = () => {
         </div>
         <div className="d-flex justify-content-between align-items-center navbar-options">
           <Link to={"/songs"}>{token && <span className="navbar-search"> <i className="fas fa-search"></i>&nbsp; Search</span>}</Link>
-          {(!token || isCreator) && <span>Publish</span>}
+          {(!token || isCreator) && <span onClick={() => setShow(true)}>Publish</span>}
           <span><Link to={"/songs"}>Listen</Link></span>
           <div className='nav-line' />
           <>

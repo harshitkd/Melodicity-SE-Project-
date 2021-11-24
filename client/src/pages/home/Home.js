@@ -95,7 +95,7 @@ const Home = () => {
             </div>
           </div>
           <div className="h2-content-btm d-flex align-items-center">
-            <div className="h2-dot h2-dot-checked" onClick={() => setCurrentDisplaySongNumber(0)}></div>
+            <div className="h2-dot" onClick={() => setCurrentDisplaySongNumber(0)}></div>
             <div className="h2-dot" onClick={() => setCurrentDisplaySongNumber(1)}></div>
             <div className="h2-dot" onClick={() => setCurrentDisplaySongNumber(2)}></div>
           </div>
@@ -115,7 +115,7 @@ const Home = () => {
               </div>
             )}
             {/* <Carousel /> */}
-            {token && <Link to={'/login'}><button className="login-last-btn">Log in</button></Link>}
+            {!token && <Link to={'/login'}><button className="login-last-btn">Log in</button></Link>}
           </div>
           <div className="right-section">
             <img className="bottom-illustration" src="bottom-illus.svg" alt="illustration" />
