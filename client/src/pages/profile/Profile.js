@@ -66,9 +66,9 @@ function Profile() {
 								<div className="user-photo-container">
 									<img src="/user-photo.svg" alt="userImage" className='user-photo' /> {/* fetch from user database */}
 									{	userCheck &&
-										<div className="edit-overlay">
-											<img src="/pencil-dark.svg" alt="edit" />
-										</div>
+										<button className="logout-btn">
+											Logout
+										</button>
 									}
 								</div>
 							</div>

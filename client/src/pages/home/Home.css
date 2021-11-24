@@ -1,3 +1,7 @@
+.home-page {
+  overflow: hidden;
+}
+
 .home {
   overflow-x: hidden;
   position: relative;
@@ -18,6 +22,7 @@
   height: 170vh;
   background-image: url("../../assets/images/album-art.jpg");
   width: 100%;
+  animation: animatedBackground 10s ease infinite alternate; 
 }
 
 .bg-blur {
@@ -25,7 +30,7 @@
   height: 270vh;
   width: 100%;
   background: rgba(0, 0, 0, 0.7);
-  backdrop-filter: blur(80px);
+  backdrop-filter: blur(60px);
 }
 
 .h1-bg {
@@ -196,14 +201,15 @@
   background-color: #c4c4c4;
 }
 
-/* .home-bg-spot-1{
+.home-bg-spot-1{
   position: absolute;
   left: -11.6%;
   right: 81.18%;
   top: -12.7%;
   bottom: 73.4%;
   background: #BABABA;
-  filter: blur(200px);
+  filter: blur(170px);
+  animation: move 5s infinite alternate;
 }
 
 .home-bg-spot-2{
@@ -215,7 +221,7 @@
   background: #F5C67E;
   mix-blend-mode: screen;
   filter: blur(200px);
-} */
+}
 
 .song-name-card {
   margin-bottom: 0.5em;
@@ -326,4 +332,22 @@ footer  p {
 footer h1 {
   margin-bottom: 0;
   font-size: 18px;
+}
+
+@keyframes animatedBackground {
+  from {
+    background-position: 50% 22%;
+  }
+  to {
+    background-position: 100% 22%;
+  }
+}
+
+@keyframes move {
+  from {
+    transform: translateY(0%) translateX(0%);
+  }
+  to {
+    transform: translateY(20%) translateX(5%);
+  }
 }
