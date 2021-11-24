@@ -2,7 +2,7 @@ import {Router} from 'express';
 import { getUserDetails, publishSong, getAll, addUserCover } from '../controllers/userController.js';
 import { protect } from '../middlewares/authMiddleware.js';
 import multer from 'multer'
-import path from 'path'
+import * as path from 'path'
 
 const router = Router();
 
