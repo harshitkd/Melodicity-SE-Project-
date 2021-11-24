@@ -1,17 +1,18 @@
 .music-player-page-image{
-    height: 300px;
-    width: 300px;
-    background-color: yellow;
+    height: 350px;
+    width: 350px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     position: absolute;
-    left:-1rem;
     top: -200px;
+    left: -150px;
     border-radius: 1rem;
 }
 
 .music-player-page-info{
     height: 200px;
     width: 300px;
-    background-color: yellow;
     position: absolute;
     right:-1rem;
     top: -100px;
@@ -19,5 +20,4 @@
 
 .music-player-page-parent{
     position: relative;
-    width: 650px;
 }

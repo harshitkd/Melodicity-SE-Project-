@@ -2,6 +2,7 @@ import User from "../models/UserModel.js"
 import Creator from '../models/CreatorModel.js'
 import Rating from '../models/RatingModel.js'
 import Creation from '../models/CreationModel.js'
+import Playlist from "../models/PlaylistModel.js"
 
 export const getCurrentUser = async(userId) => {
     try{
@@ -12,11 +13,13 @@ export const getCurrentUser = async(userId) => {
         }
         const creations = await Creation.find({userId : userId})
         const rated = await Rating.find({userId : userId}).populate("creationId")
+        const playlists = await Playlist.find({userId : userId}).populate("creationId")
         
         const details = {
             ...user._doc,
             creations,
-            rated
+            rated,
+            playlists
         }
         return details
     }

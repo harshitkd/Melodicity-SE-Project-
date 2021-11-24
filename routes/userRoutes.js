@@ -1,5 +1,5 @@
 import {Router} from 'express';
-import { getUserDetails, publishSong } from '../controllers/userController.js';
+import { getUserDetails, publishSong, getAll } from '../controllers/userController.js';
 import { protect } from '../middlewares/authMiddleware.js';
 import multer from 'multer'
 import path from 'path'
@@ -20,6 +20,7 @@ var upload=multer({
 }).array("files",2)
 
 router.route('/user/:id').get(protect, getUserDetails);
+router.route('/all-users').get(protect, getAll);
 router.route('/publish').post(protect,upload, publishSong)
 
 export default router;

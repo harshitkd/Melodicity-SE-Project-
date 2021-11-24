@@ -17,7 +17,7 @@ function ChooseRole() {
   useEffect(()=>{
     if(!preRegistration)
       history.push('/register')
-  }, [preRegistration])
+  }, [preRegistration, history])
 
   const handleRegister = () => {
     const m = {

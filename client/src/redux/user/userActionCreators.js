@@ -4,7 +4,10 @@ import {
     GET_USER_DETAILS_FAILURE,
     PUBLISH_SONG_REQUEST,
     PUBLISH_SONG_SUCCESS,
-    PUBLISH_SONG_FAILURE
+    PUBLISH_SONG_FAILURE,
+    GET_ALL_USERS_REQUEST,
+    GET_ALL_USERS_SUCCESS,
+    GET_ALL_USERS_FAILURE
 } from './userTypes'
 
 export const getUserDetailsRequest = () => {
@@ -23,6 +26,25 @@ export const getUserDetailsSuccess = (details) => {
 export const getUserDetailsFailure = () => {
     return {
         type : GET_USER_DETAILS_FAILURE
+    }
+}
+
+export const getAllUsersRequest = () => {
+    return {
+        type : GET_ALL_USERS_REQUEST
+    }
+}
+
+export const getAllUsersSuccess = (details) => {
+    return {
+        type : GET_ALL_USERS_SUCCESS,
+        payload : details
+    }
+}
+
+export const getAllUsersFailure = () => {
+    return {
+        type : GET_ALL_USERS_FAILURE
     }
 }
 

@@ -100,9 +100,7 @@ function PublishModal({show, setShow}) {
                             type="file" 
                             placeholder=""
                             onChange={(e)=> {
-                                console.log(e.target.files['0'])
                                 setImageFile(e.target.files['0'])}}
-                            accept=".png"
                             />
                         <label htmlFor="file-message" className="publishchoose-upload-text " ><span>Choose file</span></label>
                     </div> 

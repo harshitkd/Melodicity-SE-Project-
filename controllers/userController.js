@@ -2,6 +2,7 @@ import mongoose from 'mongoose'
 import Creation from "../models/CreationModel.js";
 import Creator from "../models/CreatorModel.js"
 import { getCurrentUser } from "../utils/gerCurrentUser.js";
+import { getAllUsers } from "../utils/getAllUsers.js";
 
 export const getUserDetails = async(req, res) => {
     
@@ -13,7 +14,18 @@ export const getUserDetails = async(req, res) => {
         res.status(200).send(user);
     }
     catch(err){
-        res.status(400).send({message : err.message});
+        res.status(401).send({message : err.message});
+    }
+}
+
+export const getAll = async(req, res) => {
+    try{
+        const users = await getAllUsers(req.userId);
+
+        res.status(200).send(users);
+    }
+    catch(err){
+        res.status(401).send({message : err.message});
     }
 }
 
@@ -46,7 +58,6 @@ export const publishSong = async(req, res) => {
         res.status(200).send(user);
     }
     catch(err){
-        console.log(err.message)
-        res.status(400).send({message : err.message});
+        res.status(401).send({message : err.message});
     }
 }

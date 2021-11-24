@@ -9,6 +9,7 @@
     letter-spacing: 0.03em;
     margin-right: 10px;
     flex: 1 1 176px;
+    cursor: pointer;
 }
 
 .song-cover {
