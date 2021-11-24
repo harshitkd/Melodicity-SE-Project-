@@ -16,6 +16,7 @@ import {
 import {addAlert} from '../alert/alertActions'
 
 export const getUserDetails = (data) => {
+    console.log(data)
     return (dispatch) => {
         dispatch(getUserDetailsRequest());
         const config = constructHeader(data.token);

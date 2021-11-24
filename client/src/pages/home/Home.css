@@ -196,7 +196,7 @@
   background-color: #c4c4c4;
 }
 
-/* .home-bg-spot-1{
+.home-bg-spot-1{
   position: absolute;
   left: -11.6%;
   right: 81.18%;
@@ -215,7 +215,7 @@
   background: #F5C67E;
   mix-blend-mode: screen;
   filter: blur(200px);
-} */
+}
 
 .song-name-card {
   margin-bottom: 0.5em;

@@ -31,10 +31,9 @@ const Navbar = () => {
           Melodicity
         </div>
         <div className="d-flex justify-content-between align-items-center navbar-options">
-          {token && <span className="navbar-search"> <i className="fas fa-search"></i>&nbsp; Search</span>}
+          <Link to={"/songs"}>{token && <span className="navbar-search"> <i className="fas fa-search"></i>&nbsp; Search</span>}</Link>
           {(!token || isCreator) && <span>Publish</span>}
           <span><Link to={"/songs"}>Listen</Link></span>
-          <span>Originals</span>
           <div className='nav-line' />
           <>
             {token ?
