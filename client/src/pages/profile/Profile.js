@@ -102,9 +102,7 @@ function Profile() {
 									}
 								</div>
 							</div>
-							{userCheck && (<button className="logout-btn">
-								Logout
-							</button>)}
+							{userCheck && <i className="fas fa-sign-out-alt"></i>}
 						</div>
 						<div className="song-section">
 							{userInfo.isCreator && creations && !!creations.length &&

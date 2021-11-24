@@ -86,7 +86,7 @@
     font-weight: 600;
 }
 
-/* .edit-overlay {
+.edit-overlay {
     position: absolute;
     bottom: -59px;
     height: 100px;
@@ -97,14 +97,14 @@
     transform: translateY(45px);
     transition: transform 0.8s ease;
     cursor: pointer;
-} */
+}
 
-/* .edit-overlay img {
+.edit-overlay img {
     height: 20px;
     color: #363636;
     position: relative;
     top: 8px;
-} */
+}
 
 .user-photo-container:hover .edit-overlay{
     transform: translateY(0px);
@@ -126,6 +126,7 @@
     font-weight: 600;
     font-size: 15px;
     align-items: center;
+    margin-top:1rem ;
 }
 
 .bottom-right-section {
@@ -219,4 +220,5 @@
 
 .fa-sign-out-alt{
     height: fit-content;
+    cursor: pointer;
 }
