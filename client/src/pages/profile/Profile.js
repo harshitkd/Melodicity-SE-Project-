@@ -27,6 +27,10 @@ function Profile() {
 	const userId = useSelector(state =>state?.auth?.userId)
 	const { id } = useParams();
 	const userCheck = id === userId;
+	const handleLogout = () => {
+		dispatch(userLogout())
+		history.push(`/login`)
+	}
     useEffect(()=>{
 		if(id !== userInfo?._id)
         	dispatch(getUserDetails({token, id}))
@@ -81,7 +85,7 @@ function Profile() {
                                     }
 								</div>
 							</div>
-							{userCheck && <img src="/pencil.svg" alt="edit" className='edit-icon' onClick={() => dispatch(userLogout())}/>}
+							{userCheck && <img src="/pencil.svg" alt="edit" className='edit-icon' onClick={handleLogout}/>}
 						</div>
 						<div className="song-section">
                         {   userInfo.isCreator && creations && !!creations.length && 

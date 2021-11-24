@@ -48,20 +48,7 @@ function PublishModal({show, setShow}) {
                         <div>or</div>
                         <div className="publishchoose-upload-text d-flex"> <span>Choose file</span></div>
                     </Dragger>
-                    {/* <div className="input-div d-flex" style={{marginBottom : "0.5rem"}}>
-                        <div>Add song  : &nbsp;</div>
-                        <input 
-                            name="audio-file" 
-                            id="audio-file"
-                            className="file" 
-                            type="file" 
-                            placeholder=""
-                            onChange={(e)=> {
-                                console.log(e.target.files['0'])
-                                setAudioFile(e.target.files['0'])}}
-                            />
-                        <label htmlFor="audio-file" className="publishchoose-upload-text " ><span>Choose file</span></label>
-                    </div>  */}
+                    
                     <br/>
                     <div className="input-div">
                         <input 

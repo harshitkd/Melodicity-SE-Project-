@@ -20,7 +20,7 @@ function App() {
         
         <Alert />
         {token && <MusicPlayer />}
-        {/* <Switch> */}
+        <Switch>
           { token && 
               <Switch> 
                 <Route exact path={'/'} component={Home} />
@@ -33,12 +33,14 @@ function App() {
                 </Route>
               </Switch>
           }
-          <Switch>
             <Route exact path={'/'} component={Home} />
             <Route exact path={'/login'} component={Login} />
             <Route exact path={'/register'} component={Register} />
             <Route exact path={'/register/role'} component={Role} />
             <Route exact path='/verify/:_id/:verificationLink/login' component={Verify} />
+            <Route path='*'>
+              <Redirect to='/' />
+            </Route>
         </Switch>
       </div>
     </Router> 
