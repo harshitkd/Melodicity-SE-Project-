@@ -7,12 +7,16 @@ import {
     PUBLISH_SONG_FAILURE,
     GET_ALL_USERS_FAILURE,
     GET_ALL_USERS_SUCCESS,
-    GET_ALL_USERS_REQUEST
+    GET_ALL_USERS_REQUEST,
+    UPDATE_USER_COVER_REQUEST,
+    UPDATE_USER_COVER_SUCCESS,
+    UPDATE_USER_COVER_FAILURE
 } from './userTypes'
 
 export const userReducer = (initialState = {
     isLoading : false,
     isPostLoading : false,
+    isUpdateLoading : false,
     userInfo : null,
     userList : null
 }, action) => {
@@ -52,6 +56,17 @@ export const userReducer = (initialState = {
                 ...initialState,
                 isLoading : false,
                 isPostLoading : false
+            }
+        case UPDATE_USER_COVER_REQUEST :
+            return {
+                ...initialState,
+                isUpdateLoading : true
+            }
+        case UPDATE_USER_COVER_SUCCESS :
+        case UPDATE_USER_COVER_FAILURE :
+            return {
+                ...initialState,
+                isUpdateLoading : false
             }
         default :
             return initialState;

@@ -8,7 +8,10 @@ import {
     publishSongFailure,
     getAllUsersRequest,
     getAllUsersSuccess,
-    getAllUsersFailure
+    getAllUsersFailure,
+    updateUserCoverRequest,
+    updateUserCoverSuccess,
+    updateUserCoverFailure
 } from './userActionCreators';
 import {addAlert} from '../alert/alertActions'
 
@@ -53,6 +56,22 @@ export const publishSong = (data) => {
         .catch(err => {
             dispatch(addAlert(err.response.data.message));
             dispatch(publishSongFailure());
+        })
+    }
+}
+
+export const updateUserCover = (data) => {
+    return (dispatch) => {
+        dispatch(updateUserCoverRequest());
+        const config = constructHeader(data.token);
+        axios.put('/api/user/user-routes/add-user-cover', data.updateInfo, config )
+        .then(res => {
+            dispatch(updateUserCoverSuccess());
+            dispatch(getUserDetailsSuccess(res.data));
+        })
+        .catch(err => {
+            dispatch(addAlert(err.response.data.message));
+            dispatch(updateUserCoverFailure());
         })
     }
 }

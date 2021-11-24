@@ -101,7 +101,7 @@ function Songs() {
                                 )
                             }
                         </div>
-                        {   users && 
+                        {   users && !playlistId &&
                             <div className="category" style={{alignSelf:"flex-start", width:"100%"}}>
                                 <div className="songs-heading d-flex justify-content-between" style={{marginBottom : "0"}}>
                                     <span>Artists</span>

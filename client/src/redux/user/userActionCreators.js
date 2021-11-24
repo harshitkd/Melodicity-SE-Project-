@@ -7,7 +7,10 @@ import {
     PUBLISH_SONG_FAILURE,
     GET_ALL_USERS_REQUEST,
     GET_ALL_USERS_SUCCESS,
-    GET_ALL_USERS_FAILURE
+    GET_ALL_USERS_FAILURE,
+    UPDATE_USER_COVER_REQUEST,
+    UPDATE_USER_COVER_SUCCESS,
+    UPDATE_USER_COVER_FAILURE
 } from './userTypes'
 
 export const getUserDetailsRequest = () => {
@@ -64,5 +67,24 @@ export const publishSongSuccess = (details) => {
 export const publishSongFailure = () => {
     return {
         type : PUBLISH_SONG_FAILURE
+    }
+}
+
+export const updateUserCoverRequest = () => {
+    return {
+        type : UPDATE_USER_COVER_REQUEST
+    }
+}
+
+export const updateUserCoverSuccess = (cover) => {
+    return {
+        type : UPDATE_USER_COVER_SUCCESS,
+        payload : cover
+    }
+}
+
+export const updateUserCoverFailure = () => {
+    return {
+        type : UPDATE_USER_COVER_FAILURE
     }
 }

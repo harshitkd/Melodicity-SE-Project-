@@ -5,6 +5,7 @@ import Modal from '../modal/Modal'
 import { Upload } from 'antd';
 import { PlusCircleOutlined } from '@ant-design/icons';
 import { publishSong } from '../../../redux/user/userActions';
+// import styles from 'antd/dist/antd.css';
 
 const { Dragger } = Upload;
 
@@ -40,12 +41,13 @@ function PublishModal({show, setShow}) {
                         }}
                         showUploadList={false}
                         customRequest={(e)=> console.log(e)}
+                        className={`.ant-upload .ant-upload-drag`}
                     >
                         <div className="publish-icon d-flex">
                             <PlusCircleOutlined />
                         </div>
                         <div className="publish-upload-text d-flex"> <span>Drag file to this area to upload</span></div>
-                        <div>or</div>
+                        <div className="publish-upload-text d-flex"> or</div>
                         <div className="publishchoose-upload-text d-flex"> <span>Choose file</span></div>
                     </Dragger>
                     

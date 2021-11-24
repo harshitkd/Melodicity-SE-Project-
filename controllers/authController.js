@@ -74,7 +74,7 @@ export const register = async(req,res) => {
                 from: 'melodicity.help@gmail.com',
                 to: user.email,
                 subject: 'Email Verification',
-                text: 'http://localhost:3000/verify/' + user._id +'/'+ generatedString + '/login'
+                text: 'https://melodicity.herokuapp.com/verify/' + user._id +'/'+ generatedString + '/login'
               };
             user.verificationLink = await bcrypt.hash(generatedString, 10);
             await user.save();
