@@ -4,12 +4,15 @@ import { Link } from 'react-router-dom'
 import Navbar from '../../components/navbar/Navbar'
 // import Carousel from '../../components/carousel/Carousel'
 import { useSelector} from 'react-redux'
+import PublishModal from '../../components/modals/pubishModal/PublishModal'
 
 const Home = () => {
   const [currentDisplaySongNumber, setCurrentDisplaySongNumber] = useState(0);
+	const [show, setShow] = useState(false)
   const section = useRef(null)
   const songCover = "../../assets/album-art.jpg";
   const isCreator = useSelector(state => state?.auth?.isCreator)
+  const token = useSelector(state => state?.auth?.token)
 
   useEffect(() => {
     function castParallax() {
@@ -49,7 +52,12 @@ const Home = () => {
 
   return (
     <div className='home-page'>
-      <Navbar />
+      {token &&
+          <PublishModal
+						show={show}
+						setShow={setShow}
+					/>}
+      <Navbar setShow={setShow}/>
       <div className="songcover-bg" style={{ backgroundImage: `url(${cardDisplaySongs[currentDisplaySongNumber].songArt})` }} />
       {/*dynamically change the background */}
       <div className="bg-blur" />
@@ -107,7 +115,7 @@ const Home = () => {
               </div>
             )}
             {/* <Carousel /> */}
-            <Link to={'/login'}><button className="login-last-btn">Log in</button></Link>
+            {token && <Link to={'/login'}><button className="login-last-btn">Log in</button></Link>}
           </div>
           <div className="right-section">
             <img className="bottom-illustration" src="bottom-illus.svg" alt="illustration" />
