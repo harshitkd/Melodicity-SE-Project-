@@ -7,10 +7,6 @@
   scroll-behavior: smooth;
 }
 
-html {
-  overflow: hidden;
-}
-
 body {
   margin: 0;
   font-family: "Montserrat";
