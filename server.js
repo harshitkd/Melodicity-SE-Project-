@@ -5,7 +5,7 @@ import authRoutes from './routes/authRoutes.js';
 import userRoutes from './routes/userRoutes.js';
 import songRoutes from './routes/songRoutes.js'
 import { connectdb } from './config/connectdb.js';
-import path from 'path'
+import * as path from 'path'
 
 const app = express();
 const port = process.env.PORT || 5000;

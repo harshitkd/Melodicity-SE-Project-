@@ -40,7 +40,6 @@ export const login = async(req,res) => {
 
 export const register = async(req,res) => {
     const { email, password, name, creatorName, genre} = req.body;
-    console.log(email, password, name, creatorName)
     try{
         if(!mongoose.connection.readyState)
             throw Error('Check your internet connection before proceeding.')
@@ -95,17 +94,14 @@ export const register = async(req,res) => {
 
 export const preRegister = async (req, res) => {
     const { email } = req.body;
-    console.log(email)
-    console.log("emial")
     try{
         if(!mongoose.connection.readyState)
             throw Error('Check your internet connection before proceeding.')
 
         let user = await User.findOne({email : email.toLowerCase()});
-        console.log("emial3")
         if(user)
             throw Error('Email already registered');
-        console.log("emial2")
+            
         res.status(200).json({preRegistration : true});
     }
     catch (error) {
