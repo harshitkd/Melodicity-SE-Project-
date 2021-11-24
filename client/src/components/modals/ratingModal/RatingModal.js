@@ -12,9 +12,9 @@ function RatingModal({show, setShow, songId}) {
     const alert = useSelector(state => state?.alert?.message)
 
     useEffect(() => {
-        if(alert)
+        if(alert && !isRatingLoading)
             setShow(false)
-    }, [alert])
+    }, [alert, setShow, isRatingLoading])
 
     const handleSubmit = () => {
         dispatch(rateSong({

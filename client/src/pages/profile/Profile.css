@@ -3,6 +3,10 @@
     letter-spacing: 0.03em;
 }
 
+.profile-page{
+    min-height: 100vh;
+}
+
 .top-background {
     /* display: flex;
     flex-direction: column;
@@ -186,13 +190,15 @@
 }
 
 .playlist {
-    width: 176px;
+    min-width: 150px;
     background: rgba(196, 196, 196, 0.2);
     border-radius: 3px;
     padding: 1em 14px;
     margin-right: 10px;
     margin-top: 20px;
+    cursor: pointer;
 }
+
 
 .show-more-btn {
     background: transparent;

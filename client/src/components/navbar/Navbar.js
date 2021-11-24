@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector} from 'react-redux'
+
 import './Navbar.css'
-import { userLogout } from '../../redux/auth/authActions'
 
 const Navbar = () => {
-  const dispatch = useDispatch();
   const token = useSelector(state => state?.auth?.token)
   const userId = useSelector(state => state?.auth?.userId)
   const isCreator = useSelector(state => state?.auth?.isCreator)
@@ -34,7 +33,7 @@ const Navbar = () => {
         <div className="d-flex justify-content-between align-items-center navbar-options">
           {token && <span className="navbar-search"> <i className="fas fa-search"></i>&nbsp; Search</span>}
           {(!token || isCreator) && <span>Publish</span>}
-          <span>Listen</span>
+          <span><Link to={"/songs"}>Listen</Link></span>
           <span>Originals</span>
           <div className='nav-line' />
           <>

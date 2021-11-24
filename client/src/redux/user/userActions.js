@@ -5,7 +5,10 @@ import {
     getUserDetailsFailure,
     publishSongRequest,
     publishSongSuccess,
-    publishSongFailure
+    publishSongFailure,
+    getAllUsersRequest,
+    getAllUsersSuccess,
+    getAllUsersFailure
 } from './userActionCreators';
 import {addAlert} from '../alert/alertActions'
 
@@ -20,6 +23,21 @@ export const getUserDetails = (data) => {
         .catch(err => {
             dispatch(addAlert(err.response.data.message));
             dispatch(getUserDetailsFailure());
+        })
+    }
+}
+
+export const getAllUsers = (data) => {
+    return (dispatch) => {
+        dispatch(getAllUsersRequest());
+        const config = constructHeader(data.token);
+        axios.get('/api/user/user-routes/all-users',config)
+        .then(res => {
+            dispatch(getAllUsersSuccess(res.data));
+        })
+        .catch(err => {
+            dispatch(addAlert(err.response.data.message));
+            dispatch(getAllUsersFailure());
         })
     }
 }

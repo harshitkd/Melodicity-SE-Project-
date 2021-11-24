@@ -4,16 +4,21 @@ import {
     GET_USER_DETAILS_FAILURE,
     PUBLISH_SONG_REQUEST,
     PUBLISH_SONG_SUCCESS,
-    PUBLISH_SONG_FAILURE
+    PUBLISH_SONG_FAILURE,
+    GET_ALL_USERS_FAILURE,
+    GET_ALL_USERS_SUCCESS,
+    GET_ALL_USERS_REQUEST
 } from './userTypes'
 
 export const userReducer = (initialState = {
     isLoading : false,
     isPostLoading : false,
-    userInfo : null
+    userInfo : null,
+    userList : null
 }, action) => {
     switch(action.type){
         case GET_USER_DETAILS_REQUEST :
+        case GET_ALL_USERS_REQUEST :
             return {
                 ...initialState,
                 isLoading : true
@@ -35,8 +40,14 @@ export const userReducer = (initialState = {
                 isPostLoading : false,
                 userInfo : action.payload
             }
+        case GET_ALL_USERS_SUCCESS : 
+            return {
+                ...initialState,
+                userList : action.payload
+            }
         case GET_USER_DETAILS_FAILURE :
         case PUBLISH_SONG_FAILURE :
+        case GET_ALL_USERS_FAILURE :
             return {
                 ...initialState,
                 isLoading : false,

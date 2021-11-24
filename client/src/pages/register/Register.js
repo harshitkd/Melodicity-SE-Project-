@@ -21,7 +21,7 @@ const Register = () => {
   useEffect(()=>{
     if(!isLoading && preRegistration)
       history.push('/register/role')
-  },[isLoading, preRegistration])
+  },[isLoading, preRegistration, history])
 
   const toggleIcon = passwordToggler ? (
       <div className="password-toggler">

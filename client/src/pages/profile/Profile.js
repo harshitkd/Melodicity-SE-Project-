@@ -8,6 +8,7 @@ import Loader from '../../components/loader/Loader'
 import { getUserDetails } from '../../redux/user/userActions';
 import PublishModal from '../../components/modals/pubishModal/PublishModal';
 import { userLogout } from '../../redux/auth/authActions';
+import CreatePlaylist from '../../components/modals/createPlaylist/CreatePlaylist'
 
 
 
@@ -15,17 +16,25 @@ function Profile() {
     const creations = useSelector(state => state?.user?.userInfo?.creations)
     const likedSongs = useSelector(state => state?.user?.userInfo?.likedSongs)
     const ratedSongs = useSelector(state => state?.user?.userInfo?.rated)
+    const playlists = useSelector(state => state?.user?.userInfo?.playlists)
     const [show, setShow] = useState(false)
-    const playlistCollection = [...Array(3).keys()];
+	const [createPlaylistShow, setCreatePlaylistShow] = useState(false)
 	const history = useHistory();
     const dispatch = useDispatch();
     const token = useSelector(state => state?.auth?.token)
     const isLoading = useSelector(state => state?.user?.isLoading)
-    const userInfo = useSelector(state => state?.user?.userInfo)
-    const { id } = useParams();
+	const userInfo = useSelector(state => state?.user?.userInfo)
+	const userId = useSelector(state =>state?.auth?.userId)
+	const { id } = useParams();
+	const userCheck = id === userId;
+	const handleLogout = () => {
+		dispatch(userLogout())
+		history.push(`/login`)
+	}
     useEffect(()=>{
-        dispatch(getUserDetails({token, id}))
-    },[])
+		if(id !== userInfo?._id)
+        	dispatch(getUserDetails({token, id}))
+    },[dispatch, id, token, userInfo?._id])
     return (
 	
         <>
@@ -36,6 +45,10 @@ function Profile() {
                         show={show}
                         setShow={setShow}
                     />
+					<CreatePlaylist 
+						show={createPlaylistShow}
+                        setShow={setCreatePlaylistShow}
+					/>
 					<div className='top-background'>
 						<img src="/back-icon.svg" alt='' className='back-icon' onClick={()=> history.goBack()} />
 						<div className="logo-container">
@@ -44,7 +57,7 @@ function Profile() {
 								color="#fff"
 								height="22px"
 							/>
-							<h1 className='profile-heading'>Your Profile</h1>
+							<h1 className='profile-heading'>{userCheck ? "Your" : `${userInfo.name}'s`} Profile</h1>
 						</div>
 					</div>
 					<div className="bottom-background">
@@ -52,9 +65,11 @@ function Profile() {
 							<div className="left-photo-section">
 								<div className="user-photo-container">
 									<img src="/user-photo.svg" alt="userImage" className='user-photo' /> {/* fetch from user database */}
-									<div className="edit-overlay">
-										<img src="/pencil-dark.svg" alt="edit" />
-									</div>
+									{	userCheck &&
+										<div className="edit-overlay">
+											<img src="/pencil-dark.svg" alt="edit" />
+										</div>
+									}
 								</div>
 							</div>
 							<div className="right-info-section">
@@ -62,7 +77,7 @@ function Profile() {
 								{userInfo.isCreator && <div className="artist-tag">Artist</div>} 
 								<div className="bottom-right-section">
 									<div className="stats">100 Followers <div className='dot' /> 100 Listeners</div> {/* fetch from user database */}
-									{   userInfo.isCreator && 
+									{   userInfo.isCreator && userCheck &&
                                         <button className='publish-btn' onClick={()=>setShow(true)}> {/*if user == artist*/}
                                             <img src="/plus-icon.svg" alt="publish" className='plus-icon' />
                                             Publish
@@ -70,15 +85,15 @@ function Profile() {
                                     }
 								</div>
 							</div>
-							<img src="/pencil.svg" alt="edit" className='edit-icon' onClick={() => dispatch(userLogout())}/>
+							{userCheck && <img src="/pencil.svg" alt="edit" className='edit-icon' onClick={handleLogout}/>}
 						</div>
 						<div className="song-section">
-                        {   userInfo.isCreator && creations && 
+                        {   userInfo.isCreator && creations && !!creations.length && 
 							<div className="category">
-								<h1 className="category-name">Your Songs</h1> {/*if user == artist*/}
+								<h1 className="category-name">{userCheck ? "Your" : `${userInfo.name}'s`} Songs</h1> {/*if user == artist*/}
 								<div className="song-list">
 									{ creations.slice(0, 7).map((songInfo, id) => {
-										return <SongCard songTitle={songInfo.name} songCover={songInfo.cover} key={songInfo._id} />
+										return <SongCard song={songInfo} songs={creations} key={songInfo._id} />
 									})}
 								</div>
 								{(creations.length > 7) && <button className='show-more-btn'>Show more</button>}
@@ -86,35 +101,42 @@ function Profile() {
                         }
 							{   !!likedSongs.length  &&
                                 <div className="category">
-								<h1 className="category-name">Your Favorites</h1>
+								<h1 className="category-name">{userCheck ? "Your" : `${userInfo.name}'s`} Favorites</h1>
 								<div className="song-list">
 									{likedSongs.slice(0, 7).map((songInfo, id) => {
-										return <SongCard songTitle={songInfo.name} songCover={songInfo.cover} key={id} />
+										return <SongCard song={songInfo} songs={likedSongs} key={id} />
 									})}
 								</div>
 								{(likedSongs.length > 7) && <button className='show-more-btn'>Show more</button>}
 							</div>}
-							{   (ratedSongs && !!ratedSongs.length) &&
+							{   ratedSongs && !!ratedSongs.length &&
                                 <div className="category">
 								<h1 className="category-name">Songs you rated</h1>
 								<div className="song-list">
 									{ratedSongs.slice(0, 7).map((songInfo, id) => {
-										return <SongCard songTitle={songInfo.creationId.name} songCover={songInfo.creationId.cover} rating={1} key={id} />
+										return <SongCard song={songInfo.creationId} songs={ratedSongs.map(rated => rated.creationId)} rating={1} key={id} />
 									})}
 								</div>
 								{(ratedSongs.length > 7) && <button className='show-more-btn'>Show more</button>}
 							</div>}
 							<div className="category">
-								<h1 className="category-name">Your Playlists</h1>
+								<div className="d-flex justify-content-between align-items-center">
+									<h1 className="category-name">{userCheck ? "Your" : `${userInfo.name}'s`} Playlists </h1>
+									{	userCheck && 
+										<div className="playlist" onClick={() => setCreatePlaylistShow(true)}> 
+											<i className="fas fa-plus-circle"></i> Create Playlist
+										</div>
+									}
+								</div>
 								<div className="song-list">
-									{playlistCollection.slice(0, 7).map((songInfo, id) => {
+									{playlists.slice(0, 7).map((playlist, id) => {
 										return (
-											<div className="playlist">Playlist Title</div> // if user == artist
+											<div className="playlist capitalize" onClick={()=> history.push(`/${playlist._id}/songs`)}>{playlist.playlistName}</div> // if user == artist
 										)
 									})}
-									<div className="playlist"> <i className="fas fa-plus"></i> Create Playlist</div>
+									{/* <div className="playlist" onClick={() => setCreatePlaylistShow(true)}> <i className="fas fa-plus-circle"></i> Create Playlist</div> */}
 								</div>
-								{(playlistCollection.length > 7) && <button className='show-more-btn'>Show more</button>}
+								{(playlists.length > 7) && <button className='show-more-btn'>Show more</button>}
 							</div>
 						</div>
 					</div>

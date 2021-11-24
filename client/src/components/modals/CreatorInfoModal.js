@@ -12,9 +12,9 @@ const CreatorInfoModal = ({show, setShow}) => {
     const alert = useSelector(state => state?.alert?.message)
 
     useEffect(() => {
-        if(alert)
+        if(alert && !isLoading)
             setShow(false)
-    }, [alert])
+    }, [alert, setShow, isLoading])
     const submitButton = isLoading ? (
         <button className="login-submit-btn d-flex align-items-center submit" disabled><i className="fas fa-spinner" ></i></button>
     ) : (
@@ -54,9 +54,9 @@ const CreatorInfoModal = ({show, setShow}) => {
                     name="genre" 
                     className="form-input" 
                     placeholder="  " 
-                    // onChange={(e)=>{
-                    //         setPassword(e.target.value);
-                    //     }}
+                    onChange={(e)=>{
+                            setGenre(e.target.value);
+                        }}
                     />
                     <label htmlFor="genre" className="form-label">Genres</label>
                     <div className="input-icon"><i className="fas fa-music"></i></div>

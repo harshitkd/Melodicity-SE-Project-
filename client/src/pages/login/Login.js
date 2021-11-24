@@ -1,11 +1,13 @@
 import React, {useState} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
+import {useHistory} from 'react-router-dom'
 import './Login.css'
 import Logo from '../../components/logo/Logo'
 import { userLogin } from '../../redux/auth/authActions'
 
 const Login = () => {
   const dispatch = useDispatch()
+  const history = useHistory()
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordToggler, setPasswordToggler] = useState(false);
@@ -94,7 +96,7 @@ const Login = () => {
         <div className="login-divider">
           <div>or</div>
         </div>
-        <div className="login-submit-btn d-flex align-items-center opt">Register</div>
+        <div className="login-submit-btn d-flex align-items-center opt" onClick={() => history.push(`/register`)}>Register</div>
       </div>
       </div>
     </div>
