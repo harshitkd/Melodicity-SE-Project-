@@ -1,0 +1,79 @@
+.carousel-container {
+  width: 400px;
+  overflow-x: hidden;
+}
+
+.carousel {
+  display: flex;
+  animation: carouselAnimation 20s ease infinite forwards;
+  overflow-x: hidden;
+
+}
+
+.carousel-item {
+  width: 440px;
+}
+
+.carousel-upper-heading {
+  margin-bottom: 5px;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 4em;
+  letter-spacing: 0.03em;
+  background: #d131c1;
+  background: -webkit-radial-gradient(
+    circle farthest-corner at center center,
+    #d131c1 0%,
+    #ffaef5 64%,
+    #9443f1 100%
+  );
+  background: -moz-radial-gradient(
+    circle farthest-corner at center center,
+    #d131c1 0%,
+    #ffaef5 64%,
+    #9443f1 100%
+  );
+  background: radial-gradient(
+    circle farthest-corner at center center,
+    #d131c1 0%,
+    #ffaef5 64%,
+    #9443f1 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.carousel-lower-heading {
+  font-weight: 700;
+  font-size: 2em;
+  /* line-height: 23px; */
+  letter-spacing: 0.03em;
+  margin-bottom: 0;
+}
+
+.carousel-desc {
+  font-family: Karla;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1em;
+  line-height: 23px;
+  letter-spacing: 0.03em;
+  width: 400px;
+  margin: 1.5em 0;
+}
+
+@keyframes carouselAnimation {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-100%);
+  }
+  75% {
+    transform: translateX(-200%);
+  }
+  100% {
+    transform: translateX(-300%);
+  }
+}
