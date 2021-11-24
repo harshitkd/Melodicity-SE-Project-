@@ -15,6 +15,9 @@ const userSchema = new mongoose.Schema({
       required: true,
       select: false
     }, 
+    cover : {
+      type : String
+    },
     isVerified : {
         type : Boolean,
         default : false

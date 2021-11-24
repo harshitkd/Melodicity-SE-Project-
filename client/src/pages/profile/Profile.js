@@ -5,7 +5,7 @@ import './Profile.css';
 import WaveAnimation from '../../components/WaveAnimation/WaveAnimation';
 import SongCard from '../../components/songCard/SongCard';
 import Loader from '../../components/loader/Loader'
-import { getUserDetails } from '../../redux/user/userActions';
+import { getUserDetails, updateUserCover } from '../../redux/user/userActions';
 import PublishModal from '../../components/modals/pubishModal/PublishModal';
 import { userLogout } from '../../redux/auth/authActions';
 import CreatePlaylist from '../../components/modals/createPlaylist/CreatePlaylist'
@@ -23,6 +23,7 @@ function Profile() {
     const dispatch = useDispatch();
     const token = useSelector(state => state?.auth?.token)
     const isLoading = useSelector(state => state?.user?.isLoading)
+    const isUpdateLoading = useSelector(state => state?.user?.isUpdateLoading)
 	const userInfo = useSelector(state => state?.user?.userInfo)
 	const userId = useSelector(state =>state?.auth?.userId)
 	const { id } = useParams();
@@ -64,10 +65,26 @@ function Profile() {
 						<div className="profile-card-glass">
 							<div className="left-photo-section">
 								<div className="user-photo-container">
-									<img src="/user-photo.svg" alt="userImage" className='user-photo' /> {/* fetch from user database */}
+									<img src={userInfo.cover ? userInfo.cover : "/user-photo.svg"} alt="userImage" className='user-photo' /> {/* fetch from user database */}
 									{	userCheck &&
-										<div className="edit-overlay">
-											<img src="/pencil-dark.svg" alt="edit" />
+										<div>
+											<input 
+												name="profile-dp" 
+												id="profile-dp" 
+												className="file" 
+												type="file" 
+												placeholder=""
+												onChange={(e)=> {
+													e.preventDefault();
+													const updateInfo = new FormData();
+													updateInfo.append("cover", e.target.files['0']);
+													dispatch(updateUserCover({updateInfo, token}))
+													}}
+												disabled={isUpdateLoading}
+												/>
+											<label htmlFor="profile-dp" className="edit-overlay">
+												<img src="/pencil-dark.svg" alt="edit" />
+											</label>
 										</div>
 									}
 								</div>
