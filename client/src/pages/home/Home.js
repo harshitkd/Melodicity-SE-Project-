@@ -3,7 +3,7 @@ import './Home.css'
 import { Link } from 'react-router-dom'
 import Navbar from '../../components/navbar/Navbar'
 // import Carousel from '../../components/carousel/Carousel'
-import { useSelector} from 'react-redux'
+import { useSelector } from 'react-redux'
 
 const Home = () => {
   const [currentDisplaySongNumber, setCurrentDisplaySongNumber] = useState(0);
@@ -12,21 +12,30 @@ const Home = () => {
 
   useEffect(() => {
     function castParallax() {
-        window.addEventListener("scroll", function (e) {
-            var top = this.scrollY;
-            var layers = document.getElementsByClassName("parallax");
-            var layer, speed, yPos;
-            for (var i = 0; i < layers.length; i++) {
-                layer = layers[i];
-                speed = layer.getAttribute('data-speed');
-                yPos = -(top * speed / 100);
-                layer.setAttribute('style', 'transform: translate3d(0px, ' + yPos + 'px, 0px)');
-            }
-        });
+      window.addEventListener("scroll", function (e) {
+        var top = this.scrollY;
+        var layers = document.getElementsByClassName("parallax");
+        var layer, speed, yPos;
+        for (var i = 0; i < layers.length; i++) {
+          layer = layers[i];
+          speed = layer.getAttribute('data-speed');
+          yPos = -(top * speed / 100);
+          layer.setAttribute('style', 'transform: translate3d(0px, ' + yPos + 'px, 0px)');
+        }
+      });
     }
     castParallax();
-}, [])
+  }, [])
 
+  const handleClickDots = (e, i) => {
+    setCurrentDisplaySongNumber(i);
+    const dot = document.querySelectorAll(".h2-dot");
+    // console.log(dot);
+    dot.forEach((item) => {
+      item.classList.remove("h2-dot-checked");
+    });
+    e.target.classList.add("h2-dot-checked");
+  }
 
   const cardDisplaySongs = [
     {
@@ -88,15 +97,24 @@ const Home = () => {
             </div>
           </div>
           <div className="h2-content-btm d-flex align-items-center">
-            <div className="h2-dot h2-dot-checked" onClick={() => setCurrentDisplaySongNumber(0)}></div>
-            <div className="h2-dot" onClick={() => setCurrentDisplaySongNumber(1)}></div>
-            <div className="h2-dot" onClick={() => setCurrentDisplaySongNumber(2)}></div>
+            {/* <div className="h2-dot h2-dot-checked" onClick={handleClickDots}></div>
+            <div className="h2-dot" onClick={handleClickDots}></div>
+            <div className="h2-dot" onClick={handleClickDots}></div> */}
+            {[0, 1, 2].map((i) => {
+              return (
+                <div
+                  className={`h2-dot ${i === 0 && "h2-dot-checked"}`}
+                  key={i}
+                  onClick={(e) => handleClickDots(e, i)}
+                />
+              );
+            })}
           </div>
         </div>
         <div className="feature-section ">
           <img src="./bottom-blur.png" alt="blur" className='bottom-blur' />
           <div className="carousel-section">
-           { isCreator ? (<div className='carousel-item'>
+            {isCreator ? (<div className='carousel-item'>
               <h1 className='carousel-upper-heading'>Publish</h1>
               <h1 className='carousel-lower-heading'>your song hassle-free</h1>
               <p className="carousel-desc">Every artist deserves a stage. Melodicity is the place where you can share your song with people.</p>
@@ -108,7 +126,7 @@ const Home = () => {
               </div>
             )}
             {/* <Carousel /> */}
-            <Link to={'/login'}><button className="login-last-btn">Log in</button></Link>
+            {/* <Link to={'/login'}><button className="login-last-btn">Log in</button></Link> */}
           </div>
           <div className="right-section">
             <img className="bottom-illustration" src="bottom-illus.svg" alt="illustration" />

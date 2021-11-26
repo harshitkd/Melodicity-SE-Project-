@@ -22,7 +22,7 @@
   height: 170vh;
   background-image: url("../../assets/images/album-art.jpg");
   width: 100%;
-  animation: animatedBackground 10s ease infinite alternate; 
+  animation: animatedBackground 10s ease infinite alternate;
 }
 
 .bg-blur {
@@ -189,6 +189,7 @@
   justify-content: center;
   border-bottom: 2px solid rgba(255, 255, 255, 0.18);
 }
+
 .h2-dot {
   background-color: rgba(196, 196, 196, 0.39);
   border-radius: 12px;
@@ -197,28 +198,39 @@
   width: 10px;
   cursor: pointer;
 }
+
 .h2-dot-checked {
   background-color: #c4c4c4;
+  animation: dot-animation 0.8s forwards;
 }
 
-.home-bg-spot-1{
+@keyframes dot-animation {
+  0% {
+    background-color: rgba(196, 196, 196, 0.39);
+  }
+  100% {
+    background-color: #c4c4c4;
+  }
+}
+
+.home-bg-spot-1 {
   position: absolute;
   left: -11.6%;
   right: 81.18%;
   top: -12.7%;
   bottom: 73.4%;
-  background: #BABABA;
+  background: #bababa;
   filter: blur(170px);
   animation: move 5s infinite alternate;
 }
 
-.home-bg-spot-2{
+.home-bg-spot-2 {
   position: absolute;
   left: 83.6%;
   right: 0%;
   top: 78.29%;
   bottom: -27.49%;
-  background: #F5C67E;
+  background: #f5c67e;
   mix-blend-mode: screen;
   filter: blur(200px);
 }
@@ -324,7 +336,7 @@ footer {
   position: relative;
 }
 
-footer  p {
+footer p {
   margin-bottom: 0;
   margin-right: 320px;
   font-size: 15px;
