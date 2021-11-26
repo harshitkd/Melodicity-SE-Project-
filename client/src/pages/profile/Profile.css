@@ -126,6 +126,7 @@
     font-weight: 600;
     font-size: 15px;
     align-items: center;
+    margin-top:1rem ;
 }
 
 .bottom-right-section {
@@ -219,4 +220,5 @@
 
 .fa-sign-out-alt{
     height: fit-content;
+    cursor: pointer;
 }

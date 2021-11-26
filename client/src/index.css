@@ -7,10 +7,6 @@
   scroll-behavior: smooth;
 }
 
-html {
-  /* overflow: hidden; */
-}
-
 body {
   margin: 0;
   font-family: "Montserrat";
@@ -33,10 +29,6 @@ code {
 a{
   text-decoration: none;
   color: inherit;
-}
-
-img {
-  pointer-events: none;
 }
 
 ::-webkit-scrollbar{

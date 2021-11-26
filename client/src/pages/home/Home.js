@@ -1,14 +1,18 @@
 import React, { useEffect, useRef, useState } from 'react'
 import './Home.css'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 import Navbar from '../../components/navbar/Navbar'
 // import Carousel from '../../components/carousel/Carousel'
-import { useSelector } from 'react-redux'
+import { useSelector} from 'react-redux'
+import PublishModal from '../../components/modals/pubishModal/PublishModal'
 
 const Home = () => {
   const [currentDisplaySongNumber, setCurrentDisplaySongNumber] = useState(0);
-  const songCover = "../../assets/album-art.jpg";
+	const [show, setShow] = useState(false)
+  const section = useRef(null)
+  // const songCover = "../../assets/album-art.jpg";
   const isCreator = useSelector(state => state?.auth?.isCreator)
+  const token = useSelector(state => state?.auth?.token)
 
   useEffect(() => {
     function castParallax() {
@@ -57,7 +61,12 @@ const Home = () => {
 
   return (
     <div className='home-page'>
-      <Navbar />
+      {token &&
+          <PublishModal
+						show={show}
+						setShow={setShow}
+					/>}
+      <Navbar setShow={setShow}/>
       <div className="songcover-bg" style={{ backgroundImage: `url(${cardDisplaySongs[currentDisplaySongNumber].songArt})` }} />
       {/*dynamically change the background */}
       <div className="bg-blur" />
@@ -69,11 +78,9 @@ const Home = () => {
           <div className="h1-content d-flex align-items-center">
             <div className="d-flex flex-column h1-header flex-column">
               <span>Music you need</span>
-              <a href="#display-song-card">
-                <div className="h1-button">
+                <div className="h1-button" onClick={()=> section.current.scrollIntoView()}>
                   Explore
                 </div>
-              </a>
             </div>
             <div className="content-right">
               <div className="glow-right" />
@@ -82,7 +89,7 @@ const Home = () => {
             </div>
           </div>
         </div>
-        <div className="h2 d-flex align-items-center  flex-column" id='display-song-card'>
+        <div className="h2 d-flex align-items-center  flex-column" id='display-song-card' ref={section}>
           <div className="h2-content d-flex align-items-center">
             <div className="h2-img" style={{ backgroundImage: `url(${cardDisplaySongs[currentDisplaySongNumber].songArt})` }}></div>
             <div className="h2-content-text d-flex ">

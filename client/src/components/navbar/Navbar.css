@@ -30,9 +30,6 @@
   width: 100%;
 }
 
-.navbar a {
-  font-weight: 500;
-}
 
 .nav-content {
   position: relative;
@@ -78,7 +75,7 @@
 }
 
 .navbar-options{
-  min-width: 600px;
+  min-width: 500px;
 }
 
 .navbar-options > span{
@@ -114,7 +111,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 75px;
+  height: 65px;
   transition: opacity 0.8s;
   /* background: linear-gradient(90.02deg, #CEA1D8 2.09%, #7F42F7 19.88%, #6B3CF1 35.33%, #B52CBB 73.99%, #EF6EDA 84.58%, #F4AAE8 92.81%); */
   background: linear-gradient(105.49deg, rgba(255, 255, 255, 0.32) 9.13%, rgba(255, 255, 255, 0.08) 65.38%);
