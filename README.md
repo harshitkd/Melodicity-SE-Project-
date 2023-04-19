@@ -2,7 +2,7 @@
 ![Design](https://user-images.githubusercontent.com/56076028/141937031-e7329cb4-6696-4559-8363-bffa026a3ee1.png)
 
 
-# [Melodicity](https://melodicity.herokuapp.com/)
+# [Melodicity](https://melodicity-app.onrender.com/)
 Our project Melodicity is a music label and music web streaming platform which is a web-based application built around a single server that handles all the major processing. It will act as a platform for the creators to share their music and apply for the record labels approvals and it also provides listeners with a place to discover new genres of music. 
 
 ## Tech Stack
